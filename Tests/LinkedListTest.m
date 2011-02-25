@@ -10,11 +10,18 @@
 #import <GHUnit/GHUnit.h>
 #import "LinkedList.h"
 
-@interface LinkedListTest : GHTestCase @end
+@interface LinkedListTest : GHTestCase
+-(id)val:(int)i;
+-(void)checkList:(LinkedList *)l size:(int)s;
+@end
 
 @implementation LinkedListTest
 
 LinkedList *linkedList;
+int testSize = 255;
+
+//------------------------------------------------------------------------------
+#pragma mark setUp/tearDown
 
 -(void)setUp {
 	linkedList = [[LinkedList alloc] init];
@@ -24,37 +31,96 @@ LinkedList *linkedList;
 	[linkedList release];
 }
 
--(void)test_init {
-	GHAssertNotNil(linkedList, @"LinkedList should not be nil");
-	GHAssertEquals(0, [linkedList count], @"%d != 0", [linkedList count]);
+//------------------------------------------------------------------------------
+#pragma mark helpers
+
+-(id)val:(int)i {
+	return [NSString stringWithFormat:@"Test%d",i];
 }
 
+-(void)checkList:(LinkedList *)l size:(int)s {
+	GHAssertEquals(s, [l count], @"%d != %d!", [l count], s);
+	int i = 0;
+	for (id e in l) {
+		NSString *expected = [self val:i];
+		GHAssertEqualObjects(expected, e, @"%@ != %@", e, expected);
+		GHTestLog(@"%d:%@", i, e);
+		i++;
+	}
+}
+
+-(void)checkListGet:(LinkedList *)l size:(int)s {
+	GHAssertEquals(s, [l count], @"%d != %d!", [l count], s);
+	int i = 0;
+	for (i; i < s; i++) {
+		NSString *expected = [self val:i];
+		id e = [l get:i];
+		GHAssertEqualObjects(expected, e, @"%@ != %@", e, expected);
+		GHTestLog(@"%d:%@", i, e);
+	}
+}
+
+//------------------------------------------------------------------------------
+#pragma mark init
+
+-(void)test_init {
+	GHAssertNotNil(linkedList, @"LinkedList should not be nil");
+	[self checkList:linkedList size:0];
+}
+
+//------------------------------------------------------------------------------
+#pragma mark add
+
 -(void)test_add {
-	[linkedList add:@"Test"];
-	GHAssertEquals(1, [linkedList count], @"%d != 1!", [linkedList count]);
+	[linkedList add:[self val:0]];
+	[self checkList:linkedList size:1];
 }
 
 -(void)test_add_atIndex_0 {
-	[linkedList add:@"Test" atIndex:0];
-	GHAssertEquals(1, [linkedList count], @"%d != 1!", [linkedList count]);
+	[linkedList add:[self val:0] atIndex:0];
+	[self checkList:linkedList size:1];
 }
 
--(void)test_add_atIndex_0_multiple {
-	int s = 10;
+-(void)test_add_atIndex_i {
+	int i = 0;
+	for (i; i < testSize; i++)
+		[linkedList add:[self val:i]];
+	[self checkList:linkedList size:testSize];
+}
+
+-(void)test_add_add_atIndex_0 {
 	int i = 1;
 	// add
-	for (i; i < s; i++)
-		[linkedList add:[NSString stringWithFormat:@"Test%d",i]];
-	// add atIndex
-	i = 0;
-	[linkedList add:[NSString stringWithFormat:@"Test%d",i] atIndex:i];
+	for (i; i < testSize; i++)
+		[linkedList add:[self val:i]];
+	// add atIndex 0
+	[linkedList add:[self val:0] atIndex:0];
 	
-	GHAssertEquals(s, [linkedList count], @"%d != %d!", [linkedList count], s);
-	for (id e in linkedList) {
-		NSString *expected = [NSString stringWithFormat:@"Test%d",i];
-		GHAssertEqualObjects(expected, e, @"%@ != %@", e, expected);
-		i++;
-	}
+	[self checkList:linkedList size:testSize];
+}
+
+-(void)test_add_add_atIndex_7s {
+	int i, d = 7;
+	// add non 7s
+	for (i = 0; i < testSize; i++)
+		if (i % 7 != 0)
+			[linkedList add:[self val:i]];
+	// add atIndex 7s
+	for (i = 0; i < testSize; i += d)
+		[linkedList add:[self val:i] atIndex:i];
+	// check
+	[self checkList:linkedList size:testSize];
+}
+
+//------------------------------------------------------------------------------
+#pragma mark get
+-(void)test_get {
+	// add
+	int i = 0;
+	for (i; i < testSize; i++)
+		[linkedList add:[self val:i]];
+	// check list using gets
+	[self checkListGet:linkedList size:testSize];
 }
 
 
