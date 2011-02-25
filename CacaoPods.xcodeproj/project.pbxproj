@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C451C0A71313E43700955481 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C451C0A61313E43700955481 /* GHUnit.framework */; };
+		C451C0B01313E50F00955481 /* LinkedListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F38FD113136C7E002B13B9 /* LinkedListTest.m */; };
+		C451C0B21313E50F00955481 /* LinkedNodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C451BFEA1313725500955481 /* LinkedNodeTest.m */; };
+		C451C0B31313E50F00955481 /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = C451C0AC1313E4DB00955481 /* GHUnitTestMain.m */; };
+		C451C15D1314C02E00955481 /* libCacaoPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libCacaoPods.a */; };
+		C4F38F6F13135136002B13B9 /* LinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6813135136002B13B9 /* LinkedList.h */; };
+		C4F38F7013135136002B13B9 /* LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F38F6913135136002B13B9 /* LinkedList.m */; };
+		C4F38F7113135136002B13B9 /* List.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6A13135136002B13B9 /* List.h */; };
+		C4F38F7213135136002B13B9 /* Map.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6B13135136002B13B9 /* Map.h */; };
+		C4F38F7413135136002B13B9 /* Queue.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6D13135136002B13B9 /* Queue.h */; };
+		C4F38F7513135136002B13B9 /* Set.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6E13135136002B13B9 /* Set.h */; };
+		C4F38F7713135157002B13B9 /* MutableList.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F7613135157002B13B9 /* MutableList.h */; };
+		C4F38F8813135708002B13B9 /* LinkedNode.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F8613135708002B13B9 /* LinkedNode.h */; };
+		C4F38F8913135708002B13B9 /* LinkedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F38F8713135708002B13B9 /* LinkedNode.m */; };
+		C4F38FD313136C7E002B13B9 /* LinkedListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F38FD113136C7E002B13B9 /* LinkedListTest.m */; };
+		D2AAC088055469A000DB518D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C451C15B1314C02700955481 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = CacaoPods;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF5E0370ADEE00C91783 /* CacaoPods_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacaoPods_Prefix.pch; sourceTree = "<group>"; };
+		C451BFEA1313725500955481 /* LinkedNodeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedNodeTest.m; sourceTree = "<group>"; };
+		C451C02A1313738C00955481 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = SDKROOT; };
+		C451C09C1313E41F00955481 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C451C0A61313E43700955481 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnit.framework; path = Library/Frameworks/GHUnit.framework; sourceTree = SDKROOT; };
+		C451C0AC1313E4DB00955481 /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
+		C4F38F6813135136002B13B9 /* LinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedList.h; sourceTree = "<group>"; };
+		C4F38F6913135136002B13B9 /* LinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedList.m; sourceTree = "<group>"; };
+		C4F38F6A13135136002B13B9 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		C4F38F6B13135136002B13B9 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		C4F38F6D13135136002B13B9 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		C4F38F6E13135136002B13B9 /* Set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Set.h; sourceTree = "<group>"; };
+		C4F38F7613135157002B13B9 /* MutableList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableList.h; sourceTree = "<group>"; };
+		C4F38F8613135708002B13B9 /* LinkedNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedNode.h; sourceTree = "<group>"; };
+		C4F38F8713135708002B13B9 /* LinkedNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedNode.m; sourceTree = "<group>"; };
+		C4F38FD113136C7E002B13B9 /* LinkedListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedListTest.m; sourceTree = "<group>"; };
+		C4F38FDE13136F00002B13B9 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
+		D2AAC07E0554694100DB518D /* libCacaoPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCacaoPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2F7E8BE07B2D77200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C451C09A1313E41F00955481 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C451C0A71313E43700955481 /* GHUnit.framework in Frameworks */,
+				C451C15D1314C02E00955481 /* libCacaoPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2AAC088055469A000DB518D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libCacaoPods.a */,
+				C451C09C1313E41F00955481 /* Test.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* CacaoPods */ = {
+			isa = PBXGroup;
+			children = (
+				C4F38F6713135136002B13B9 /* Classes */,
+				C4F38FCF13136C36002B13B9 /* Tests */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DFFF38A50411DB9C8B /* Products */,
+				C4F38FDE13136F00002B13B9 /* Test-Info.plist */,
+				C451C0A61313E43700955481 /* GHUnit.framework */,
+			);
+			name = CacaoPods;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
+				C451C02A1313738C00955481 /* SenTestingKit.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
+				D2F7E8BE07B2D77200F64583 /* CoreData.framework */,
+				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF5E0370ADEE00C91783 /* CacaoPods_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		C4F38F6713135136002B13B9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C4F38F7C131351BC002B13B9 /* base */,
+				C4F38F7D131351E0002B13B9 /* mutable */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C4F38F7813135160002B13B9 /* immutable */ = {
+			isa = PBXGroup;
+			children = (
+				C4F38F6A13135136002B13B9 /* List.h */,
+				C4F38F6B13135136002B13B9 /* Map.h */,
+				C4F38F6D13135136002B13B9 /* Queue.h */,
+				C4F38F6E13135136002B13B9 /* Set.h */,
+			);
+			name = immutable;
+			sourceTree = "<group>";
+		};
+		C4F38F7913135168002B13B9 /* mutable */ = {
+			isa = PBXGroup;
+			children = (
+				C4F38F7613135157002B13B9 /* MutableList.h */,
+			);
+			name = mutable;
+			sourceTree = "<group>";
+		};
+		C4F38F7C131351BC002B13B9 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				C4F38F7813135160002B13B9 /* immutable */,
+				C4F38F7913135168002B13B9 /* mutable */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
+		C4F38F7D131351E0002B13B9 /* mutable */ = {
+			isa = PBXGroup;
+			children = (
+				C4F38F8613135708002B13B9 /* LinkedNode.h */,
+				C4F38F8713135708002B13B9 /* LinkedNode.m */,
+				C4F38F6813135136002B13B9 /* LinkedList.h */,
+				C4F38F6913135136002B13B9 /* LinkedList.m */,
+			);
+			name = mutable;
+			sourceTree = "<group>";
+		};
+		C4F38FCF13136C36002B13B9 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C4F38FD113136C7E002B13B9 /* LinkedListTest.m */,
+				C451BFEA1313725500955481 /* LinkedNodeTest.m */,
+				C451C0AC1313E4DB00955481 /* GHUnitTestMain.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4F38F6F13135136002B13B9 /* LinkedList.h in Headers */,
+				C4F38F7113135136002B13B9 /* List.h in Headers */,
+				C4F38F7213135136002B13B9 /* Map.h in Headers */,
+				C4F38F7413135136002B13B9 /* Queue.h in Headers */,
+				C4F38F7513135136002B13B9 /* Set.h in Headers */,
+				C4F38F7713135157002B13B9 /* MutableList.h in Headers */,
+				C4F38F8813135708002B13B9 /* LinkedNode.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C451C09B1313E41F00955481 /* Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C451C0A51313E42300955481 /* Build configuration list for PBXNativeTarget "Test" */;
+			buildPhases = (
+				C451C0981313E41F00955481 /* Resources */,
+				C451C0991313E41F00955481 /* Sources */,
+				C451C09A1313E41F00955481 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C451C15C1314C02700955481 /* PBXTargetDependency */,
+			);
+			name = Test;
+			productName = Test;
+			productReference = C451C09C1313E41F00955481 /* Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D2AAC07D0554694100DB518D /* CacaoPods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "CacaoPods" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CacaoPods;
+			productName = CacaoPods;
+			productReference = D2AAC07E0554694100DB518D /* libCacaoPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "CacaoPods" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* CacaoPods */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* CacaoPods */,
+				C451C09B1313E41F00955481 /* Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C451C0981313E41F00955481 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C451C0991313E41F00955481 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C451C0B01313E50F00955481 /* LinkedListTest.m in Sources */,
+				C451C0B21313E50F00955481 /* LinkedNodeTest.m in Sources */,
+				C451C0B31313E50F00955481 /* GHUnitTestMain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4F38F7013135136002B13B9 /* LinkedList.m in Sources */,
+				C4F38F8913135708002B13B9 /* LinkedNode.m in Sources */,
+				C4F38FD313136C7E002B13B9 /* LinkedListTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C451C15C1314C02700955481 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* CacaoPods */;
+			targetProxy = C451C15B1314C02700955481 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CacaoPods_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = CacaoPods;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CacaoPods_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = CacaoPods;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		C451C09E1313E42000955481 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Test-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Test;
+			};
+			name = Debug;
+		};
+		C451C09F1313E42000955481 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Test-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Test;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "CacaoPods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "CacaoPods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C451C0A51313E42300955481 /* Build configuration list for PBXNativeTarget "Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C451C09E1313E42000955481 /* Debug */,
+				C451C09F1313E42000955481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

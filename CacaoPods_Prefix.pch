@@ -1,0 +1,11 @@
+//
+// Prefix header for all source files of the 'CacaoPods' target in the 'CacaoPods' project.
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+
+	#define RaiseRangeException(idx) \
+		[NSException raise:NSRangeException format:@"index %d out of bounds"];
+
+#endif

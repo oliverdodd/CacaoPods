@@ -1,0 +1,7 @@
+
+http://download.oracle.com/javase/6/docs/technotes/guides/collections/reference.html
+
+http://www.scala-lang.org/api/current/index.html
+
+http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Collections/Collections.html
+
