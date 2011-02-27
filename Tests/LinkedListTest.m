@@ -18,7 +18,7 @@
 @implementation LinkedListTest
 
 LinkedList *linkedList;
-int testSize = 255;
+int testSize = 1023;
 
 //------------------------------------------------------------------------------
 #pragma mark setUp/tearDown
@@ -38,8 +38,12 @@ int testSize = 255;
 	return [NSString stringWithFormat:@"Test%d",i];
 }
 
--(void)checkList:(LinkedList *)l size:(int)s {
+-(void)checkSize:(LinkedList *)l size:(int)s {
 	GHAssertEquals(s, [l count], @"%d != %d!", [l count], s);
+}
+
+-(void)checkList:(LinkedList *)l size:(int)s {
+	[self checkSize:l size:s];
 	int i = 0;
 	for (id e in l) {
 		NSString *expected = [self val:i];
@@ -50,7 +54,7 @@ int testSize = 255;
 }
 
 -(void)checkListGet:(LinkedList *)l size:(int)s {
-	GHAssertEquals(s, [l count], @"%d != %d!", [l count], s);
+	[self checkSize:l size:s];
 	int i = 0;
 	for (i; i < s; i++) {
 		NSString *expected = [self val:i];
@@ -114,6 +118,7 @@ int testSize = 255;
 
 //------------------------------------------------------------------------------
 #pragma mark get
+
 -(void)test_get {
 	// add
 	int i = 0;
@@ -121,6 +126,74 @@ int testSize = 255;
 		[linkedList add:[self val:i]];
 	// check list using gets
 	[self checkListGet:linkedList size:testSize];
+}
+
+//------------------------------------------------------------------------------
+#pragma mark indexOf
+
+-(void)test_indexOf {
+	// add
+	int i = 0;
+	for (i; i < testSize; i++)
+		[linkedList add:[self val:i]];
+	// check list
+	for (i = 0; i < testSize; i++) {
+		id val = [self val:i];
+		GHAssertEquals(i, [linkedList indexOf:val], @"index of %@ != %d", val, i);
+	}
+}
+
+//------------------------------------------------------------------------------
+#pragma mark set
+
+-(void)test_set {
+	// add
+	id val = @"Test";
+	int i = 0;
+	for (i; i < testSize; i++)
+		[linkedList add:val];
+	// check list
+	for (i = 0; i < testSize; i++) {
+		[linkedList set:[self val:i] atIndex:i];
+	}
+	// check
+	[self checkList:linkedList size:testSize];
+	[self checkListGet:linkedList size:testSize];
+}
+
+
+//------------------------------------------------------------------------------
+#pragma mark remove
+
+-(void)test_remove_1 {
+	// add
+	int i = 0;
+	int s = 3;
+	for (i; i < s; i++)
+		[linkedList add:[self val:i]];
+	[self checkList:linkedList size:s];
+	// remove
+	id e = [linkedList remove:1];
+	//check
+	[self checkSize:linkedList size:s - 1];
+	GHAssertEqualObjects([self val:0], [linkedList get:0], @"");
+	GHAssertEqualObjects([self val:1], e, @"");	
+	GHAssertEqualObjects([self val:2], [linkedList get:1], @"");
+}
+
+-(void)test_remove_all {
+	// add
+	int i = 0;
+	for (i; i < testSize; i++)
+		[linkedList add:[self val:i]];
+	// remove
+	for (i = testSize - 1; i >= 0; i--) {
+		[linkedList remove:i];
+		// test every hundred elements
+		if (i % 100 == 0)
+			[self checkList:linkedList size:i];
+	}
+	[self checkSize:linkedList size:0];
 }
 
 

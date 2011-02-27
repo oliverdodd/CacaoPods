@@ -14,6 +14,7 @@
 -(void)checkIndex:(int)index;
 -(LinkedNode *)entry:(int)index;
 -(LinkedNode *)addBefore:(id)e node:(LinkedNode *)n;
+-(void)removeNode:(LinkedNode *)n;
 @end
 
 
@@ -89,6 +90,42 @@ LinkedNode *sentinel = nil;
 	[self addBefore:object node:(index == size ? sentinel : [self entry:index])];
 }
 
+-(id)set:(id)object atIndex:(int)index {
+	LinkedNode *n = [self entry:index];
+	id element = n.element;
+	n.element = object;
+	return element;
+}
+
+/*-----------------------------------------------------------------------------\
+ |	contains
+ \----------------------------------------------------------------------------*/
+#pragma mark contains
+
+-(BOOL)contains:(id)object {
+	return [self indexOf:object] != -1;
+}
+
+-(BOOL)containsAll:(NSArray *)collection {
+	return NO;
+}
+
+-(int)indexOf:(id)object {
+	LinkedNode *currentNode = sentinel;
+	int i = 0;
+	while ((currentNode = currentNode.next) != sentinel) {
+		if ([object isEqual:currentNode.element])
+			return i;
+		i++;
+	}
+	return -1;
+}
+
+/*-----------------------------------------------------------------------------\
+ |	remove
+ \----------------------------------------------------------------------------*/
+#pragma mark remove
+
 -(void)clear {
 	LinkedNode *n;
 	while ((n = sentinel.next) != sentinel) {
@@ -99,40 +136,43 @@ LinkedNode *sentinel = nil;
 	size = 0;
 }
 
--(BOOL)contains:(id)object {
-	return NO;
+-(void)removeNode:(LinkedNode *)n; {
+	n.previous.next = n.next;
+	n.next.previous = n.previous;
+	size--;
 }
 
--(BOOL)containsAll:(NSArray *)collection {
-	return NO;
+-(id)remove:(int)index {
+	LinkedNode *n = [self entry:index];
+	id element = n.element;
+	[self removeNode:n];
+	return element;
 }
+
+-(BOOL)removeObject:(id)object {
+	return NO;//---------------------------------------------------------------------------------------------->
+}
+
+/*-----------------------------------------------------------------------------\
+ |	size
+ \----------------------------------------------------------------------------*/
+#pragma mark size
 
 -(int)count {
 	return size;
 }
 
 -(BOOL)isEmpty {
-	return NO;
+	return size == 0;
 }
 
--(int)indexOf:(id)object {
-	return -1;
-}
+/*-----------------------------------------------------------------------------\
+ |	enumeration
+ \----------------------------------------------------------------------------*/
+#pragma mark enumeration
 
 -(NSEnumerator *)objectEnumerator {
-	return nil;
-}
-
--(id)remove:(int)index {
-	return nil;
-}
-
--(BOOL)removeObject:(id)object {
-	return NO;
-}
-
--(id)set:(id)object atIndex:(int)index {
-	return nil;
+	return nil;//-------------------------------------------------------------------------------------->
 }
 
 // http://cocoawithlove.com/2008/05/implementing-countbyenumeratingwithstat.html
