@@ -107,7 +107,10 @@ CPLinkedNode *sentinel = nil;
 }
 
 -(BOOL)containsAll:(NSArray *)collection {
-	return NO;
+	for (id o in collection)
+		if (![self contains:o])
+			return NO;
+	return YES;
 }
 
 -(int)indexOf:(id)object {

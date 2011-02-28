@@ -12,7 +12,10 @@
 
 @interface LinkedListTest : GHTestCase
 -(id)val:(int)i;
+-(void)fillList:(CPLinkedList *)l size:(int)s;
+-(void)checkSize:(CPLinkedList *)l size:(int)s;
 -(void)checkList:(CPLinkedList *)l size:(int)s;
+-(void)checkListGet:(CPLinkedList *)l size:(int)s;
 @end
 
 @implementation LinkedListTest
@@ -36,6 +39,12 @@ int testSize = 1023;
 
 -(id)val:(int)i {
 	return [NSString stringWithFormat:@"Test%d",i];
+}
+
+-(void)fillList:(CPLinkedList *)l size:(int)s {
+	int i = 0;
+	for (i; i < testSize; i++)
+		[linkedList add:[self val:i]];
 }
 
 -(void)checkSize:(CPLinkedList *)l size:(int)s {
@@ -88,7 +97,7 @@ int testSize = 1023;
 -(void)test_add_atIndex_i {
 	int i = 0;
 	for (i; i < testSize; i++)
-		[linkedList add:[self val:i]];
+		[linkedList add:[self val:i] atIndex:i];
 	[self checkList:linkedList size:testSize];
 }
 
@@ -120,11 +129,7 @@ int testSize = 1023;
 #pragma mark get
 
 -(void)test_get {
-	// add
-	int i = 0;
-	for (i; i < testSize; i++)
-		[linkedList add:[self val:i]];
-	// check list using gets
+	[self fillList:linkedList size:testSize];
 	[self checkListGet:linkedList size:testSize];
 }
 
@@ -133,11 +138,10 @@ int testSize = 1023;
 
 -(void)test_indexOf {
 	// add
-	int i = 0;
-	for (i; i < testSize; i++)
-		[linkedList add:[self val:i]];
+	[self fillList:linkedList size:testSize];
 	// check list
-	for (i = 0; i < testSize; i++) {
+	int i = 0;
+	for (i; i < testSize; i++) {
 		id val = [self val:i];
 		GHAssertEquals(i, [linkedList indexOf:val], @"index of %@ != %d", val, i);
 	}
@@ -152,7 +156,7 @@ int testSize = 1023;
 	int i = 0;
 	for (i; i < testSize; i++)
 		[linkedList add:val];
-	// check list
+	// set
 	for (i = 0; i < testSize; i++) {
 		[linkedList set:[self val:i] atIndex:i];
 	}
@@ -161,6 +165,30 @@ int testSize = 1023;
 	[self checkListGet:linkedList size:testSize];
 }
 
+//------------------------------------------------------------------------------
+#pragma mark contains
+
+-(void)test_contains {
+	// add
+	[self fillList:linkedList size:testSize];
+	// check
+	int i = 0;
+	for (i; i < testSize; i++) {
+		GHAssertTrue([linkedList contains:[self val:i]], @"", nil);
+	}
+}
+
+-(void)test_containsAll {
+	// add
+	[self fillList:linkedList size:testSize];
+	// check
+	NSMutableArray *a = [NSMutableArray arrayWithCapacity:testSize];
+	int i = 0;
+	for (i; i < testSize; i++) {
+		[a addObject:[self val:i]];
+	}
+	GHAssertTrue([linkedList containsAll:a], @"", nil);
+}
 
 //------------------------------------------------------------------------------
 #pragma mark remove
