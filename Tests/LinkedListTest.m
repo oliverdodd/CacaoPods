@@ -12,19 +12,19 @@
 
 @interface LinkedListTest : GHTestCase
 -(id)val:(int)i;
--(void)checkList:(LinkedList *)l size:(int)s;
+-(void)checkList:(CPLinkedList *)l size:(int)s;
 @end
 
 @implementation LinkedListTest
 
-LinkedList *linkedList;
+CPLinkedList *linkedList;
 int testSize = 1023;
 
 //------------------------------------------------------------------------------
 #pragma mark setUp/tearDown
 
 -(void)setUp {
-	linkedList = [[LinkedList alloc] init];
+	linkedList = [[CPLinkedList alloc] init];
 }
 
 -(void)tearDown {
@@ -38,11 +38,11 @@ int testSize = 1023;
 	return [NSString stringWithFormat:@"Test%d",i];
 }
 
--(void)checkSize:(LinkedList *)l size:(int)s {
+-(void)checkSize:(CPLinkedList *)l size:(int)s {
 	GHAssertEquals(s, [l count], @"%d != %d!", [l count], s);
 }
 
--(void)checkList:(LinkedList *)l size:(int)s {
+-(void)checkList:(CPLinkedList *)l size:(int)s {
 	[self checkSize:l size:s];
 	int i = 0;
 	for (id e in l) {
@@ -53,7 +53,7 @@ int testSize = 1023;
 	}
 }
 
--(void)checkListGet:(LinkedList *)l size:(int)s {
+-(void)checkListGet:(CPLinkedList *)l size:(int)s {
 	[self checkSize:l size:s];
 	int i = 0;
 	for (i; i < s; i++) {

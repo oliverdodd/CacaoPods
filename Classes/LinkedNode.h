@@ -10,17 +10,17 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface LinkedNode : NSObject {
+@interface CPLinkedNode : NSObject {
 	id element;
-	LinkedNode *next;
-	LinkedNode *previous;
+	CPLinkedNode *next;
+	CPLinkedNode *previous;
 }
 @property(copy) id element;
-@property(retain) LinkedNode *next;
-@property(retain) LinkedNode *previous;
+@property(retain) CPLinkedNode *next;
+@property(retain) CPLinkedNode *previous;
 
 -(id)init:(id)e next:(id)n previous:(id)p;
 
-+(LinkedNode *)sentinel;
++(CPLinkedNode *)sentinel;
 
 @end

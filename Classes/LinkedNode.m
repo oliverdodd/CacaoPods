@@ -10,11 +10,11 @@
 #import "LinkedNode.h"
 
 
-@implementation LinkedNode
+@implementation CPLinkedNode
 @synthesize element, next, previous;
 
-+(LinkedNode *)sentinel {
-	LinkedNode *sentinel = [[LinkedNode alloc] init:nil next:nil previous:nil];
++(CPLinkedNode *)sentinel {
+	CPLinkedNode *sentinel = [[CPLinkedNode alloc] init:nil next:nil previous:nil];
 	sentinel.next = sentinel;
 	sentinel.previous = sentinel;
 	return sentinel;

@@ -10,7 +10,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@protocol List <NSFastEnumeration>
+@protocol CPList <NSFastEnumeration>
 
 -(BOOL)contains:(id)object;
 -(BOOL)containsAll:(NSArray *)collection;

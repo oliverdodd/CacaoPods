@@ -11,7 +11,7 @@
 #import "List.h"
 #import "MutableList.h"
 
-@interface LinkedList : NSObject<MutableList> {
+@interface CPLinkedList : NSObject<CPMutableList> {
 
 }
 

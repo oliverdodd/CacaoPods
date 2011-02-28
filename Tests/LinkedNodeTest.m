@@ -16,9 +16,9 @@
 
 -(void)test_init {
 	NSString *value = @"test";
-	LinkedNode *node = [[LinkedNode alloc] init:value next:nil previous:nil];
+	CPLinkedNode *node = [[CPLinkedNode alloc] init:value next:nil previous:nil];
     GHAssertNotNil(node, @"LinkedList should not be nil");
-	GHAssertEquals(value, node.element, @"LinkedList should contain %@", value);
+	GHAssertEqualObjects(value, node.element, @"LinkedList should contain %@", value);
     [node release];
 }
 

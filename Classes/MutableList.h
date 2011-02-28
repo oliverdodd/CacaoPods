@@ -10,7 +10,7 @@
 #import <Cocoa/Cocoa.h>
 #import "List.h"
 
-@protocol MutableList <List>
+@protocol CPMutableList <CPList>
 
 -(void)add:(id)object;
 -(void)add:(id)object atIndex:(int)index;

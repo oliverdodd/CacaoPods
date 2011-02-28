@@ -10,7 +10,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@protocol Map
+@protocol CPMap
 
 
 @end

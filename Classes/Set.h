@@ -10,7 +10,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@protocol Set
+@protocol CPSet
 
 
 @end

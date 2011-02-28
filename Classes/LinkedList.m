@@ -10,15 +10,15 @@
 #import "LinkedList.h"
 #import "LinkedNode.h"
 
-@interface LinkedList (Private)
+@interface CPLinkedList (Private)
 -(void)checkIndex:(int)index;
--(LinkedNode *)entry:(int)index;
--(LinkedNode *)addBefore:(id)e node:(LinkedNode *)n;
--(void)removeNode:(LinkedNode *)n;
+-(CPLinkedNode *)entry:(int)index;
+-(CPLinkedNode *)addBefore:(id)e node:(CPLinkedNode *)n;
+-(void)removeNode:(CPLinkedNode *)n;
 @end
 
 
-@implementation LinkedList
+@implementation CPLinkedList
 
 /*-----------------------------------------------------------------------------\
  |	init
@@ -26,11 +26,11 @@
 #pragma mark init
 
 int size = 0;
-LinkedNode *sentinel = nil;
+CPLinkedNode *sentinel = nil;
 
 -(id)init {
 	if (self = [super init]) {
-		sentinel = [[LinkedNode sentinel] retain];
+		sentinel = [[CPLinkedNode sentinel] retain];
 	}
 	return self;
 }
@@ -55,9 +55,9 @@ LinkedNode *sentinel = nil;
 	return [self entry:index].element;
 }
 
--(LinkedNode *)entry:(int)index {
+-(CPLinkedNode *)entry:(int)index {
 	[self checkIndex:index];
-	LinkedNode *n = sentinel;
+	CPLinkedNode *n = sentinel;
 	int i;
 	if (index < (size >> 1)) {
 		for (i = 0; i <= index; i++)
@@ -74,8 +74,8 @@ LinkedNode *sentinel = nil;
  \----------------------------------------------------------------------------*/
 #pragma mark add
 
--(LinkedNode *)addBefore:(id)e node:(LinkedNode *)n {
-	LinkedNode *new = [[LinkedNode alloc] init:e next:n previous:n.previous];
+-(CPLinkedNode *)addBefore:(id)e node:(CPLinkedNode *)n {
+	CPLinkedNode *new = [[CPLinkedNode alloc] init:e next:n previous:n.previous];
 	new.previous.next = new;
 	new.next.previous = new;
 	size++;
@@ -91,7 +91,7 @@ LinkedNode *sentinel = nil;
 }
 
 -(id)set:(id)object atIndex:(int)index {
-	LinkedNode *n = [self entry:index];
+	CPLinkedNode *n = [self entry:index];
 	id element = n.element;
 	n.element = object;
 	return element;
@@ -111,7 +111,7 @@ LinkedNode *sentinel = nil;
 }
 
 -(int)indexOf:(id)object {
-	LinkedNode *currentNode = sentinel;
+	CPLinkedNode *currentNode = sentinel;
 	int i = 0;
 	while ((currentNode = currentNode.next) != sentinel) {
 		if ([object isEqual:currentNode.element])
@@ -127,7 +127,7 @@ LinkedNode *sentinel = nil;
 #pragma mark remove
 
 -(void)clear {
-	LinkedNode *n;
+	CPLinkedNode *n;
 	while ((n = sentinel.next) != sentinel) {
 		sentinel.next = n.next;
 		[n release];
@@ -136,14 +136,14 @@ LinkedNode *sentinel = nil;
 	size = 0;
 }
 
--(void)removeNode:(LinkedNode *)n; {
+-(void)removeNode:(CPLinkedNode *)n; {
 	n.previous.next = n.next;
 	n.next.previous = n.previous;
 	size--;
 }
 
 -(id)remove:(int)index {
-	LinkedNode *n = [self entry:index];
+	CPLinkedNode *n = [self entry:index];
 	id element = n.element;
 	[self removeNode:n];
 	return element;
@@ -177,11 +177,11 @@ LinkedNode *sentinel = nil;
 
 // http://cocoawithlove.com/2008/05/implementing-countbyenumeratingwithstat.html
 -(NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len {
-	LinkedNode *currentNode;
+	CPLinkedNode *currentNode;
 	if (state->state == 0) {
 		currentNode = sentinel.next;
     } else {
-		currentNode = (LinkedNode *)state->state;
+		currentNode = (CPLinkedNode *)state->state;
 	}
 	
 	NSUInteger batchCount = 0;
