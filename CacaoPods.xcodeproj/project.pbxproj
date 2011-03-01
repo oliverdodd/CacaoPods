@@ -58,6 +58,7 @@
 		D2AAC07E0554694100DB518D /* libCacaoPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCacaoPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E8BE07B2D77200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		E76826E0131D9D6400A963FB /* CPCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCollection.h; sourceTree = "<group>"; };
+		E7682721131DA26200A963FB /* Deque.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deque.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +162,7 @@
 		C4F38F7913135168002B13B9 /* mutable */ = {
 			isa = PBXGroup;
 			children = (
+				E7682721131DA26200A963FB /* Deque.h */,
 				C4F38F6D13135136002B13B9 /* Queue.h */,
 				C4F38F7613135157002B13B9 /* MutableList.h */,
 			);

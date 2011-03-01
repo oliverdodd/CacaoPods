@@ -15,4 +15,7 @@
 -(id)peek;
 -(void)push:(id)object;
 
+// enqueue one or many objects
+// dequeue 
+
 @end
