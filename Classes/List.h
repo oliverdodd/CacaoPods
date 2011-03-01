@@ -7,19 +7,18 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import <Cocoa/Cocoa.h>
+#import "CPCollection.h"
 
-
-@protocol CPList <NSFastEnumeration>
+@protocol CPList <CPCollection>
 
 -(BOOL)contains:(id)object;
 -(BOOL)containsAll:(NSArray *)collection;
--(BOOL)isEmpty;
 
--(int)count;
 -(int)indexOf:(id)object;
 
 -(id)get:(int)index;
+-(id)first;
+-(id)last;
 
 -(NSEnumerator *)objectEnumerator;
 

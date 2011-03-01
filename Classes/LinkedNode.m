@@ -9,7 +9,6 @@
 
 #import "LinkedNode.h"
 
-
 @implementation CPLinkedNode
 @synthesize element, next, previous;
 

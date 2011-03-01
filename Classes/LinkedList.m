@@ -55,6 +55,22 @@ CPLinkedNode *sentinel = nil;
 	return [self entry:index].element;
 }
 
+-(id)first {
+	return [self entry:0].element;
+}
+
+-(id)last {
+	return [self entry:(size - 1)].element;
+}
+
+-(id)poll {
+	return [self remove:0];
+}
+
+-(id)peek {
+	return [self first];
+}
+
 -(CPLinkedNode *)entry:(int)index {
 	[self checkIndex:index];
 	CPLinkedNode *n = sentinel;
@@ -88,6 +104,10 @@ CPLinkedNode *sentinel = nil;
 	
 -(void)add:(id)object atIndex:(int)index {
 	[self addBefore:object node:(index == size ? sentinel : [self entry:index])];
+}
+
+-(void)push:(id)object {
+	[self add:object];
 }
 
 -(id)set:(id)object atIndex:(int)index {

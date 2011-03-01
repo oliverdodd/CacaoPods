@@ -57,6 +57,7 @@
 		C4F38FDE13136F00002B13B9 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libCacaoPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCacaoPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E8BE07B2D77200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		E76826E0131D9D6400A963FB /* CPCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCollection.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +153,6 @@
 			children = (
 				C4F38F6A13135136002B13B9 /* List.h */,
 				C4F38F6B13135136002B13B9 /* Map.h */,
-				C4F38F6D13135136002B13B9 /* Queue.h */,
 				C4F38F6E13135136002B13B9 /* Set.h */,
 			);
 			name = immutable;
@@ -161,6 +161,7 @@
 		C4F38F7913135168002B13B9 /* mutable */ = {
 			isa = PBXGroup;
 			children = (
+				C4F38F6D13135136002B13B9 /* Queue.h */,
 				C4F38F7613135157002B13B9 /* MutableList.h */,
 			);
 			name = mutable;
@@ -171,6 +172,7 @@
 			children = (
 				C4F38F7813135160002B13B9 /* immutable */,
 				C4F38F7913135168002B13B9 /* mutable */,
+				E76826E0131D9D6400A963FB /* CPCollection.h */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -258,6 +260,7 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "CacaoPods" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,

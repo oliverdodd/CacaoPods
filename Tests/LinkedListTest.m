@@ -133,6 +133,32 @@ int testSize = 1023;
 	[self checkListGet:linkedList size:testSize];
 }
 
+-(void)test_first {
+	[self fillList:linkedList size:testSize];
+	GHAssertEqualObjects([self val:0], [linkedList first], @"", nil);
+}
+
+-(void)test_last {
+	[self fillList:linkedList size:testSize];
+	GHAssertEqualObjects([self val:(testSize - 1)], [linkedList last], @"", nil);
+}
+
+-(void)test_peek {
+	[self fillList:linkedList size:testSize];
+	GHAssertEqualObjects([self val:0], [linkedList peek], @"", nil);
+}
+
+-(void)test_poll {
+	// add
+	[self fillList:linkedList size:testSize];
+	// pop
+	int i = 0;
+	for (i; i < testSize; i++) {
+		GHAssertEqualObjects([self val:i], [linkedList poll], @"", nil);
+		[self checkSize:linkedList size:(testSize - i - 1)];
+	}
+}
+
 //------------------------------------------------------------------------------
 #pragma mark indexOf
 
@@ -211,10 +237,9 @@ int testSize = 1023;
 
 -(void)test_remove_all {
 	// add
-	int i = 0;
-	for (i; i < testSize; i++)
-		[linkedList add:[self val:i]];
+	[self fillList:linkedList size:testSize];
 	// remove
+	int i;
 	for (i = testSize - 1; i >= 0; i--) {
 		[linkedList remove:i];
 		// test every hundred elements

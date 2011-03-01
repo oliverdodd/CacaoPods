@@ -7,10 +7,9 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import <Cocoa/Cocoa.h>
+#import "CPCollection.h"
 
-
-@protocol CPMap
+@protocol CPMap <CPCollection>
 
 
 @end

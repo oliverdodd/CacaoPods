@@ -7,11 +7,11 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import <Cocoa/Cocoa.h>
 #import "List.h"
 #import "MutableList.h"
+#import "Queue.h"
 
-@interface CPLinkedList : NSObject<CPMutableList> {
+@interface CPLinkedList : NSObject<CPMutableList, CPQueue> {
 
 }
 
