@@ -10,8 +10,9 @@
 #import "List.h"
 #import "MutableList.h"
 #import "Queue.h"
+#import "Deque.h"
 
-@interface CPLinkedList : NSObject<CPMutableList, CPQueue> {
+@interface CPLinkedList : NSObject<CPMutableList, CPQueue, CPDeque> {
 
 }
 

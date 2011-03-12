@@ -63,14 +63,6 @@ CPLinkedNode *sentinel = nil;
 	return [self entry:(size - 1)].element;
 }
 
--(id)poll {
-	return [self remove:0];
-}
-
--(id)peek {
-	return [self first];
-}
-
 -(CPLinkedNode *)entry:(int)index {
 	[self checkIndex:index];
 	CPLinkedNode *n = sentinel;
@@ -104,10 +96,6 @@ CPLinkedNode *sentinel = nil;
 	
 -(void)add:(id)object atIndex:(int)index {
 	[self addBefore:object node:(index == size ? sentinel : [self entry:index])];
-}
-
--(void)push:(id)object {
-	[self add:object];
 }
 
 -(id)set:(id)object atIndex:(int)index {
@@ -172,8 +160,15 @@ CPLinkedNode *sentinel = nil;
 	return element;
 }
 
+// removes only the first occurrence
 -(BOOL)removeObject:(id)object {
-	return NO;//---------------------------------------------------------------------------------------------->
+	int i = [self indexOf:object];
+	if (i >= 0) {
+		[self remove:i];
+		return YES;
+	} else {
+		return NO;
+	}
 }
 
 /*-----------------------------------------------------------------------------\
@@ -187,6 +182,40 @@ CPLinkedNode *sentinel = nil;
 
 -(BOOL)isEmpty {
 	return size == 0;
+}
+
+/*-----------------------------------------------------------------------------\
+ |	queue
+ \----------------------------------------------------------------------------*/
+#pragma mark queue
+
+-(void)push:(id)object {
+	[self add:object];
+}
+
+-(id)poll {
+	return [self remove:0];
+}
+
+-(id)peek {
+	return [self first];
+}
+
+/*-----------------------------------------------------------------------------\
+ |	deque
+ \----------------------------------------------------------------------------*/
+#pragma mark deque
+
+-(void)unshift:(id)object {
+	[self add:object atIndex:0];
+}
+
+-(id)shift {
+	return [self poll];
+}
+
+-(id)pop {
+	return [self remove:(size - 1)];
 }
 
 /*-----------------------------------------------------------------------------\

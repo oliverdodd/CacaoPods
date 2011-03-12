@@ -41,10 +41,20 @@ int testSize = 1023;
 	return [NSString stringWithFormat:@"Test%d",i];
 }
 
--(void)fillList:(CPLinkedList *)l size:(int)s {
+-(void)forList:(CPLinkedList *)l size:(int)s func:(void (^)(CPLinkedList*,int))func {
 	int i = 0;
-	for (i; i < testSize; i++)
-		[linkedList add:[self val:i]];
+	for (i; i < s; i++)
+		func(l,i);
+}
+
+-(void)forListReverse:(CPLinkedList *)l size:(int)s func:(void (^)(CPLinkedList*,int))func {
+	int i = s - 1;
+	for (i; i >= 0; i--)
+		func(l,i);
+}
+
+-(void)fillList:(CPLinkedList *)l size:(int)s {
+	[self forList:l size:s func:^(CPLinkedList *l, int i) { [l add:[self val:i]]; }];
 }
 
 -(void)checkSize:(CPLinkedList *)l size:(int)s {
@@ -64,13 +74,12 @@ int testSize = 1023;
 
 -(void)checkListGet:(CPLinkedList *)l size:(int)s {
 	[self checkSize:l size:s];
-	int i = 0;
-	for (i; i < s; i++) {
+	[self forList:l size:s func:^(CPLinkedList *l, int i) {
 		NSString *expected = [self val:i];
 		id e = [l get:i];
 		GHAssertEqualObjects(expected, e, @"%@ != %@", e, expected);
 		GHTestLog(@"%d:%@", i, e);
-	}
+	}];
 }
 
 //------------------------------------------------------------------------------
@@ -143,22 +152,6 @@ int testSize = 1023;
 	GHAssertEqualObjects([self val:(testSize - 1)], [linkedList last], @"", nil);
 }
 
--(void)test_peek {
-	[self fillList:linkedList size:testSize];
-	GHAssertEqualObjects([self val:0], [linkedList peek], @"", nil);
-}
-
--(void)test_poll {
-	// add
-	[self fillList:linkedList size:testSize];
-	// pop
-	int i = 0;
-	for (i; i < testSize; i++) {
-		GHAssertEqualObjects([self val:i], [linkedList poll], @"", nil);
-		[self checkSize:linkedList size:(testSize - i - 1)];
-	}
-}
-
 //------------------------------------------------------------------------------
 #pragma mark indexOf
 
@@ -198,10 +191,9 @@ int testSize = 1023;
 	// add
 	[self fillList:linkedList size:testSize];
 	// check
-	int i = 0;
-	for (i; i < testSize; i++) {
-		GHAssertTrue([linkedList contains:[self val:i]], @"", nil);
-	}
+	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+		GHAssertTrue([l contains:[self val:i]], @"", nil);
+	}];
 }
 
 -(void)test_containsAll {
@@ -221,10 +213,8 @@ int testSize = 1023;
 
 -(void)test_remove_1 {
 	// add
-	int i = 0;
 	int s = 3;
-	for (i; i < s; i++)
-		[linkedList add:[self val:i]];
+	[self fillList:linkedList size:s];
 	[self checkList:linkedList size:s];
 	// remove
 	id e = [linkedList remove:1];
@@ -239,16 +229,86 @@ int testSize = 1023;
 	// add
 	[self fillList:linkedList size:testSize];
 	// remove
-	int i;
-	for (i = testSize - 1; i >= 0; i--) {
-		[linkedList remove:i];
+	[self forListReverse:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+		GHAssertFalse([linkedList contains:[linkedList remove:i]], @"", nil);
 		// test every hundred elements
 		if (i % 100 == 0)
 			[self checkList:linkedList size:i];
-	}
+	}];
 	[self checkSize:linkedList size:0];
 }
 
+-(void)test_removeObject {
+	// add
+	[self fillList:linkedList size:testSize];
+	// remove
+	id valid = [self val:(testSize / 2)];
+	id invalid = [self val:(testSize / 2)];
+	
+	GHAssertTrue([linkedList contains:valid], @"", nil);
+	GHAssertTrue([linkedList removeObject:valid], @"", nil);
+	GHAssertFalse([linkedList contains:valid], @"", nil);
+	
+	GHAssertFalse([linkedList removeObject:invalid], @"", nil);
+}
 
+//------------------------------------------------------------------------------
+#pragma mark Queue
+
+-(void)test_peek {
+	[self fillList:linkedList size:testSize];
+	GHAssertEqualObjects([self val:0], [linkedList peek], @"", nil);
+}
+
+-(void)test_poll {
+	// add
+	[self fillList:linkedList size:testSize];
+	// pop
+	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+		GHAssertEqualObjects([self val:i], [l poll], @"", nil);
+		[self checkSize:l size:(testSize - i - 1)];
+	}];
+}
+
+-(void)test_push {
+	// fill
+	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+		[l push:[self val:i]];
+	}];
+	// check
+	[self checkList:linkedList size:testSize];
+}
+
+//------------------------------------------------------------------------------
+#pragma mark Deque
+
+-(void)test_unshift {
+	// fill
+	[self forListReverse:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+		[l unshift:[self val:i]];
+	}];
+	// check
+	[self checkList:linkedList size:testSize];
+}
+
+-(void)test_shift {
+	// add
+	[self fillList:linkedList size:testSize];
+	// pop
+	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+		GHAssertEqualObjects([self val:i], [l shift], @"", nil);
+		[self checkSize:l size:(testSize - i - 1)];
+	}];
+}
+
+-(void)test_pop {
+	// add
+	[self fillList:linkedList size:testSize];
+	// pop
+	[self forListReverse:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+		GHAssertEqualObjects([self val:i], [l pop], @"", nil);
+		[self checkSize:l size:i];
+	}];
+}
 
 @end

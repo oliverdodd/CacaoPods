@@ -9,8 +9,13 @@
 
 #import "Queue.h"
 
-@protocol Deque <Queue>
+@protocol CPDeque <CPQueue>
 
+-(void)unshift:(id)object;
+-(id)shift;
+-(id)pop;
 
+-(id)first;
+-(id)last;
 
 @end
