@@ -25,7 +25,7 @@
  \----------------------------------------------------------------------------*/
 #pragma mark init
 
-int size = 0;
+NSUInteger size = 0;
 CPLinkedNode *sentinel = nil;
 
 -(id)init {
@@ -176,7 +176,7 @@ CPLinkedNode *sentinel = nil;
  \----------------------------------------------------------------------------*/
 #pragma mark size
 
--(int)count {
+-(NSUInteger)count {
 	return size;
 }
 
@@ -232,23 +232,38 @@ CPLinkedNode *sentinel = nil;
 	CPLinkedNode *currentNode;
 	if (state->state == 0) {
 		currentNode = sentinel.next;
-    } else {
+	} else {
 		currentNode = (CPLinkedNode *)state->state;
 	}
 	
 	NSUInteger batchCount = 0;
-    while (currentNode != sentinel && batchCount < len) {
-        stackbuf[batchCount] = currentNode.element;
-        currentNode = currentNode.next;
-        batchCount++;
-    }
+	while (currentNode != sentinel && batchCount < len) {
+		stackbuf[batchCount] = currentNode.element;
+		currentNode = currentNode.next;
+		batchCount++;
+	}
 	
-    state->state = (unsigned long)currentNode;
-    state->itemsPtr = stackbuf;
-    state->mutationsPtr = (unsigned long *)self;
+	state->state = (unsigned long)currentNode;
+	state->itemsPtr = stackbuf;
+	state->mutationsPtr = (unsigned long *)self;
 	
-    return batchCount;
+	return batchCount;
 }
 
+/*-----------------------------------------------------------------------------\
+ |	array
+ \----------------------------------------------------------------------------*/
+#pragma mark array
+
+-(NSArray *)array {
+	NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self count]];
+	
+	CPLinkedNode *currentNode = sentinel.next;
+	while (currentNode != sentinel) {
+		[array addObject:currentNode.element];
+		currentNode = currentNode.next;
+    }
+	return array;
+}
 
 @end

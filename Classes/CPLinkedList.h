@@ -12,8 +12,8 @@
 #import "CPQueue.h"
 #import "CPDeque.h"
 
-@interface CPLinkedList : NSObject<CPMutableList, CPQueue, CPDeque> {
+@interface CPLinkedList : NSObject<CPMutableList, CPQueue, CPDeque>
 
-}
+-(NSArray *)array;
 
 @end

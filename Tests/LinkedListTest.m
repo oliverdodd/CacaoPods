@@ -12,16 +12,16 @@
 
 @interface LinkedListTest : GHTestCase
 -(id)val:(int)i;
--(void)fillList:(CPLinkedList *)l size:(int)s;
--(void)checkSize:(CPLinkedList *)l size:(int)s;
--(void)checkList:(CPLinkedList *)l size:(int)s;
--(void)checkListGet:(CPLinkedList *)l size:(int)s;
+-(void)fillList:(CPLinkedList *)l size:(NSUInteger)s;
+-(void)checkSize:(CPLinkedList *)l size:(NSUInteger)s;
+-(void)checkList:(CPLinkedList *)l size:(NSUInteger)s;
+-(void)checkListGet:(CPLinkedList *)l size:(NSUInteger)s;
 @end
 
 @implementation LinkedListTest
 
 CPLinkedList *linkedList;
-int testSize = 1023;
+NSUInteger testSize = 1023;
 
 //------------------------------------------------------------------------------
 #pragma mark setUp/tearDown
@@ -41,27 +41,39 @@ int testSize = 1023;
 	return [NSString stringWithFormat:@"Test%d",i];
 }
 
--(void)forList:(CPLinkedList *)l size:(int)s func:(void (^)(CPLinkedList*,int))func {
+-(void)forList:(CPLinkedList *)l size:(NSUInteger)s func:(void (^)(CPLinkedList*,int))func {
 	int i = 0;
 	for (i; i < s; i++)
 		func(l,i);
 }
 
--(void)forListReverse:(CPLinkedList *)l size:(int)s func:(void (^)(CPLinkedList*,int))func {
+-(void)forArray:(NSArray *)a size:(NSUInteger)s func:(void (^)(NSArray*,int))func {
+	int i = 0;
+	for (i; i < s; i++)
+		func(a,i);
+}
+
+-(void)forMutableArray:(NSMutableArray *)a size:(NSUInteger)s func:(void (^)(NSMutableArray*,int))func {
+	int i = 0;
+	for (i; i < s; i++)
+		func(a,i);
+}
+
+-(void)forListReverse:(CPLinkedList *)l size:(NSUInteger)s func:(void (^)(CPLinkedList*,int))func {
 	int i = s - 1;
 	for (i; i >= 0; i--)
 		func(l,i);
 }
 
--(void)fillList:(CPLinkedList *)l size:(int)s {
+-(void)fillList:(CPLinkedList *)l size:(NSUInteger)s {
 	[self forList:l size:s func:^(CPLinkedList *l, int i) { [l add:[self val:i]]; }];
 }
 
--(void)checkSize:(CPLinkedList *)l size:(int)s {
+-(void)checkSize:(CPLinkedList *)l size:(NSUInteger)s {
 	GHAssertEquals(s, [l count], @"%d != %d!", [l count], s);
 }
 
--(void)checkList:(CPLinkedList *)l size:(int)s {
+-(void)checkList:(CPLinkedList *)l size:(NSUInteger)s {
 	[self checkSize:l size:s];
 	int i = 0;
 	for (id e in l) {
@@ -72,7 +84,7 @@ int testSize = 1023;
 	}
 }
 
--(void)checkListGet:(CPLinkedList *)l size:(int)s {
+-(void)checkListGet:(CPLinkedList *)l size:(NSUInteger)s {
 	[self checkSize:l size:s];
 	[self forList:l size:s func:^(CPLinkedList *l, int i) {
 		NSString *expected = [self val:i];
@@ -125,7 +137,7 @@ int testSize = 1023;
 	int i, d = 7;
 	// add non 7s
 	for (i = 0; i < testSize; i++)
-		if (i % 7 != 0)
+		if (i % d != 0)
 			[linkedList add:[self val:i]];
 	// add atIndex 7s
 	for (i = 0; i < testSize; i += d)
@@ -159,11 +171,10 @@ int testSize = 1023;
 	// add
 	[self fillList:linkedList size:testSize];
 	// check list
-	int i = 0;
-	for (i; i < testSize; i++) {
+	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
 		id val = [self val:i];
-		GHAssertEquals(i, [linkedList indexOf:val], @"index of %@ != %d", val, i);
-	}
+		GHAssertEquals(i, [l indexOf:val], @"index of %@ != %d", val, i);
+	}];
 }
 
 //------------------------------------------------------------------------------
@@ -172,13 +183,13 @@ int testSize = 1023;
 -(void)test_set {
 	// add
 	id val = @"Test";
-	int i = 0;
-	for (i; i < testSize; i++)
-		[linkedList add:val];
+	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+		[l add:val];
+	}];
 	// set
-	for (i = 0; i < testSize; i++) {
-		[linkedList set:[self val:i] atIndex:i];
-	}
+	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+		[l set:[self val:i] atIndex:i];
+	}];
 	// check
 	[self checkList:linkedList size:testSize];
 	[self checkListGet:linkedList size:testSize];
@@ -201,10 +212,9 @@ int testSize = 1023;
 	[self fillList:linkedList size:testSize];
 	// check
 	NSMutableArray *a = [NSMutableArray arrayWithCapacity:testSize];
-	int i = 0;
-	for (i; i < testSize; i++) {
+	[self forMutableArray:a size:testSize func:^(NSMutableArray *a, int i) {
 		[a addObject:[self val:i]];
-	}
+	}];
 	GHAssertTrue([linkedList containsAll:a], @"", nil);
 }
 
@@ -213,7 +223,7 @@ int testSize = 1023;
 
 -(void)test_remove_1 {
 	// add
-	int s = 3;
+	NSUInteger s = 3;
 	[self fillList:linkedList size:s];
 	[self checkList:linkedList size:s];
 	// remove
@@ -310,5 +320,22 @@ int testSize = 1023;
 		[self checkSize:l size:i];
 	}];
 }
+
+//------------------------------------------------------------------------------
+#pragma mark array
+
+-(void)test_array {
+	// add
+	[self fillList:linkedList size:testSize];
+	// array
+	NSArray *a = [linkedList array];
+	[self forArray:a size:testSize func:^(NSArray *a, int i) {
+		id e = [a objectAtIndex:i];
+		GHAssertEqualObjects([self val:i], e, @"", nil);
+		GHTestLog(@"%d:%@", i, e);
+	}];
+	GHAssertEquals(testSize, [a count], @"", nil);
+}
+
 
 @end

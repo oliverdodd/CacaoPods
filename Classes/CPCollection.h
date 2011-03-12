@@ -10,6 +10,6 @@
 @protocol CPCollection <NSFastEnumeration>
 
 -(BOOL)isEmpty;
--(int)count;
+-(NSUInteger)count;
 
 @end

@@ -12,6 +12,8 @@
 		C451C0B21313E50F00955481 /* LinkedNodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C451BFEA1313725500955481 /* LinkedNodeTest.m */; };
 		C451C0B31313E50F00955481 /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = C451C0AC1313E4DB00955481 /* GHUnitTestMain.m */; };
 		C451C15D1314C02E00955481 /* libCacaoPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libCacaoPods.a */; };
+		C4D2DD01132C32E800799EE8 /* CPLinkedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = C4D2DCFF132C32E800799EE8 /* CPLinkedDictionary.h */; };
+		C4D2DD02132C32E800799EE8 /* CPLinkedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DD00132C32E800799EE8 /* CPLinkedDictionary.m */; };
 		C4F38F6F13135136002B13B9 /* CPLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6813135136002B13B9 /* CPLinkedList.h */; };
 		C4F38F7013135136002B13B9 /* CPLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F38F6913135136002B13B9 /* CPLinkedList.m */; };
 		C4F38F7113135136002B13B9 /* CPList.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6A13135136002B13B9 /* CPList.h */; };
@@ -44,6 +46,8 @@
 		C451C09C1313E41F00955481 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C451C0A61313E43700955481 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnit.framework; path = Library/Frameworks/GHUnit.framework; sourceTree = SDKROOT; };
 		C451C0AC1313E4DB00955481 /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
+		C4D2DCFF132C32E800799EE8 /* CPLinkedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedDictionary.h; sourceTree = "<group>"; };
+		C4D2DD00132C32E800799EE8 /* CPLinkedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLinkedDictionary.m; sourceTree = "<group>"; };
 		C4F38F6813135136002B13B9 /* CPLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedList.h; sourceTree = "<group>"; };
 		C4F38F6913135136002B13B9 /* CPLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLinkedList.m; sourceTree = "<group>"; };
 		C4F38F6A13135136002B13B9 /* CPList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPList.h; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				C4F38F8713135708002B13B9 /* CPLinkedNode.m */,
 				C4F38F6813135136002B13B9 /* CPLinkedList.h */,
 				C4F38F6913135136002B13B9 /* CPLinkedList.m */,
+				C4D2DCFF132C32E800799EE8 /* CPLinkedDictionary.h */,
+				C4D2DD00132C32E800799EE8 /* CPLinkedDictionary.m */,
 			);
 			name = mutable;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 				C4F38F7513135136002B13B9 /* CPSet.h in Headers */,
 				C4F38F7713135157002B13B9 /* CPMutableList.h in Headers */,
 				C4F38F8813135708002B13B9 /* CPLinkedNode.h in Headers */,
+				C4D2DD01132C32E800799EE8 /* CPLinkedDictionary.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +315,7 @@
 				C4F38F7013135136002B13B9 /* CPLinkedList.m in Sources */,
 				C4F38F8913135708002B13B9 /* CPLinkedNode.m in Sources */,
 				C4F38FD313136C7E002B13B9 /* LinkedListTest.m in Sources */,
+				C4D2DD02132C32E800799EE8 /* CPLinkedDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
