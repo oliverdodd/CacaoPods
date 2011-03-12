@@ -1,5 +1,5 @@
 //
-//  Map.h
+//  CPLinkedList.h - Linked List
 //  CacaoPods
 //
 //  Created by Oliver C Dodd on 2011-02-21.
@@ -7,9 +7,13 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import "CPCollection.h"
+#import "CPList.h"
+#import "CPMutableList.h"
+#import "CPQueue.h"
+#import "CPDeque.h"
 
-@protocol CPMap <CPCollection>
+@interface CPLinkedList : NSObject<CPMutableList, CPQueue, CPDeque> {
 
+}
 
 @end

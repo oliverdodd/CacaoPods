@@ -8,7 +8,7 @@
 //
 
 #import <GHUnit/GHUnit.h>
-#import "LinkedNode.h"
+#import "CPLinkedNode.h"
 
 @interface LinkedNodeTest : GHTestCase @end
 

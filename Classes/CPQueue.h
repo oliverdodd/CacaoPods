@@ -1,5 +1,5 @@
 //
-//  Queue.h
+//  CPQueue.h - Queue protocol
 //  CacaoPods
 //
 //  Created by Oliver C Dodd on 2011-02-21.

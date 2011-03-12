@@ -1,5 +1,5 @@
 //
-//  Deque.h
+//  Deque.h - Double-Ended Queue protocol
 //  CacaoPods
 //
 //  Created by Oliver C Dodd on 2011-03-01.
@@ -7,7 +7,7 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import "Queue.h"
+#import "CPQueue.h"
 
 @protocol CPDeque <CPQueue>
 

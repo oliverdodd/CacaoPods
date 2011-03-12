@@ -1,5 +1,5 @@
 //
-//  LinkedList.m
+//  CPLinkedList.m - Linked List
 //  CacaoPods
 //
 //  Created by Oliver C Dodd on 2011-02-21.
@@ -7,8 +7,8 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import "LinkedList.h"
-#import "LinkedNode.h"
+#import "CPLinkedList.h"
+#import "CPLinkedNode.h"
 
 @interface CPLinkedList (Private)
 -(void)checkIndex:(int)index;

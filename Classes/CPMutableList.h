@@ -1,5 +1,5 @@
 //
-//  MutableList.h
+//  MutableList.h - Mutable List protocol
 //  CacaoPods
 //
 //  Created by Oliver C Dodd on 2011-02-21.
@@ -7,7 +7,7 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import "List.h"
+#import "CPList.h"
 
 @protocol CPMutableList <CPList>
 

@@ -8,7 +8,7 @@
 //
 
 #import <GHUnit/GHUnit.h>
-#import "LinkedList.h"
+#import "CPLinkedList.h"
 
 @interface LinkedListTest : GHTestCase
 -(id)val:(int)i;
