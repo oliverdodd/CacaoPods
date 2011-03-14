@@ -8,7 +8,6 @@
 //
 
 #import "CPLinkedList.h"
-#import "CPLinkedNode.h"
 
 @interface CPLinkedList (Private)
 -(void)checkIndex:(int)index;
@@ -25,12 +24,10 @@
  \----------------------------------------------------------------------------*/
 #pragma mark init
 
-NSUInteger size = 0;
-CPLinkedNode *sentinel = nil;
-
 -(id)init {
 	if (self = [super init]) {
-		sentinel = [[CPLinkedNode sentinel] retain];
+		size = 0;
+		sentinel = [CPLinkedNode sentinel];
 	}
 	return self;
 }
@@ -39,6 +36,19 @@ CPLinkedNode *sentinel = nil;
     [self clear];
     [sentinel release];
 	[super dealloc];
+}
+
+/*-----------------------------------------------------------------------------\
+ |	size
+ \----------------------------------------------------------------------------*/
+#pragma mark size
+
+-(NSUInteger)count {
+	return size;
+}
+
+-(BOOL)isEmpty {
+	return [self count] == 0;
 }
 
 /*-----------------------------------------------------------------------------\
@@ -172,19 +182,6 @@ CPLinkedNode *sentinel = nil;
 }
 
 /*-----------------------------------------------------------------------------\
- |	size
- \----------------------------------------------------------------------------*/
-#pragma mark size
-
--(NSUInteger)count {
-	return size;
-}
-
--(BOOL)isEmpty {
-	return size == 0;
-}
-
-/*-----------------------------------------------------------------------------\
  |	queue
  \----------------------------------------------------------------------------*/
 #pragma mark queue
@@ -224,7 +221,7 @@ CPLinkedNode *sentinel = nil;
 #pragma mark enumeration
 
 -(NSEnumerator *)objectEnumerator {
-	return nil;//-------------------------------------------------------------------------------------->
+	return [[self array] objectEnumerator];
 }
 
 // http://cocoawithlove.com/2008/05/implementing-countbyenumeratingwithstat.html

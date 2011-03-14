@@ -11,8 +11,12 @@
 #import "CPMutableList.h"
 #import "CPQueue.h"
 #import "CPDeque.h"
+#import "CPLinkedNode.h"
 
-@interface CPLinkedList : NSObject<CPMutableList, CPQueue, CPDeque>
+@interface CPLinkedList : NSObject<CPMutableList, CPQueue, CPDeque> {
+	NSUInteger size;
+	CPLinkedNode *sentinel;
+}
 
 -(NSArray *)array;
 

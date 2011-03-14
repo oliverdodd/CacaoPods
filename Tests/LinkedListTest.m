@@ -8,14 +8,10 @@
 //
 
 #import <GHUnit/GHUnit.h>
+#import "CPBaseTestCase.h";
 #import "CPLinkedList.h"
 
-@interface LinkedListTest : GHTestCase
--(id)val:(int)i;
--(void)fillList:(CPLinkedList *)l size:(NSUInteger)s;
--(void)checkSize:(CPLinkedList *)l size:(NSUInteger)s;
--(void)checkList:(CPLinkedList *)l size:(NSUInteger)s;
--(void)checkListGet:(CPLinkedList *)l size:(NSUInteger)s;
+@interface LinkedListTest : CPBaseTestCase
 @end
 
 @implementation LinkedListTest
@@ -41,36 +37,8 @@ NSUInteger testSize = 1023;
 	return [NSString stringWithFormat:@"Test%d",i];
 }
 
--(void)forList:(CPLinkedList *)l size:(NSUInteger)s func:(void (^)(CPLinkedList*,int))func {
-	int i = 0;
-	for (i; i < s; i++)
-		func(l,i);
-}
-
--(void)forArray:(NSArray *)a size:(NSUInteger)s func:(void (^)(NSArray*,int))func {
-	int i = 0;
-	for (i; i < s; i++)
-		func(a,i);
-}
-
--(void)forMutableArray:(NSMutableArray *)a size:(NSUInteger)s func:(void (^)(NSMutableArray*,int))func {
-	int i = 0;
-	for (i; i < s; i++)
-		func(a,i);
-}
-
--(void)forListReverse:(CPLinkedList *)l size:(NSUInteger)s func:(void (^)(CPLinkedList*,int))func {
-	int i = s - 1;
-	for (i; i >= 0; i--)
-		func(l,i);
-}
-
 -(void)fillList:(CPLinkedList *)l size:(NSUInteger)s {
-	[self forList:l size:s func:^(CPLinkedList *l, int i) { [l add:[self val:i]]; }];
-}
-
--(void)checkSize:(CPLinkedList *)l size:(NSUInteger)s {
-	GHAssertEquals(s, [l count], @"%d != %d!", [l count], s);
+	[self forLinkedList:l size:s func:^(CPLinkedList *l, int i) { [l add:[self val:i]]; }];
 }
 
 -(void)checkList:(CPLinkedList *)l size:(NSUInteger)s {
@@ -86,7 +54,7 @@ NSUInteger testSize = 1023;
 
 -(void)checkListGet:(CPLinkedList *)l size:(NSUInteger)s {
 	[self checkSize:l size:s];
-	[self forList:l size:s func:^(CPLinkedList *l, int i) {
+	[self forLinkedList:l size:s func:^(CPLinkedList *l, int i) {
 		NSString *expected = [self val:i];
 		id e = [l get:i];
 		GHAssertEqualObjects(expected, e, @"%@ != %@", e, expected);
@@ -171,7 +139,7 @@ NSUInteger testSize = 1023;
 	// add
 	[self fillList:linkedList size:testSize];
 	// check list
-	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+	[self forLinkedList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
 		id val = [self val:i];
 		GHAssertEquals(i, [l indexOf:val], @"index of %@ != %d", val, i);
 	}];
@@ -183,11 +151,11 @@ NSUInteger testSize = 1023;
 -(void)test_set {
 	// add
 	id val = @"Test";
-	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+	[self forLinkedList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
 		[l add:val];
 	}];
 	// set
-	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+	[self forLinkedList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
 		[l set:[self val:i] atIndex:i];
 	}];
 	// check
@@ -202,7 +170,7 @@ NSUInteger testSize = 1023;
 	// add
 	[self fillList:linkedList size:testSize];
 	// check
-	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+	[self forLinkedList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
 		GHAssertTrue([l contains:[self val:i]], @"", nil);
 	}];
 }
@@ -239,7 +207,7 @@ NSUInteger testSize = 1023;
 	// add
 	[self fillList:linkedList size:testSize];
 	// remove
-	[self forListReverse:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+	[self forLinkedListReverse:linkedList size:testSize func:^(CPLinkedList *l, int i) {
 		GHAssertFalse([linkedList contains:[linkedList remove:i]], @"", nil);
 		// test every hundred elements
 		if (i % 100 == 0)
@@ -274,7 +242,7 @@ NSUInteger testSize = 1023;
 	// add
 	[self fillList:linkedList size:testSize];
 	// pop
-	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+	[self forLinkedList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
 		GHAssertEqualObjects([self val:i], [l poll], @"", nil);
 		[self checkSize:l size:(testSize - i - 1)];
 	}];
@@ -282,7 +250,7 @@ NSUInteger testSize = 1023;
 
 -(void)test_push {
 	// fill
-	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+	[self forLinkedList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
 		[l push:[self val:i]];
 	}];
 	// check
@@ -294,7 +262,7 @@ NSUInteger testSize = 1023;
 
 -(void)test_unshift {
 	// fill
-	[self forListReverse:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+	[self forLinkedListReverse:linkedList size:testSize func:^(CPLinkedList *l, int i) {
 		[l unshift:[self val:i]];
 	}];
 	// check
@@ -305,7 +273,7 @@ NSUInteger testSize = 1023;
 	// add
 	[self fillList:linkedList size:testSize];
 	// pop
-	[self forList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+	[self forLinkedList:linkedList size:testSize func:^(CPLinkedList *l, int i) {
 		GHAssertEqualObjects([self val:i], [l shift], @"", nil);
 		[self checkSize:l size:(testSize - i - 1)];
 	}];
@@ -315,7 +283,7 @@ NSUInteger testSize = 1023;
 	// add
 	[self fillList:linkedList size:testSize];
 	// pop
-	[self forListReverse:linkedList size:testSize func:^(CPLinkedList *l, int i) {
+	[self forLinkedListReverse:linkedList size:testSize func:^(CPLinkedList *l, int i) {
 		GHAssertEqualObjects([self val:i], [l pop], @"", nil);
 		[self checkSize:l size:i];
 	}];
