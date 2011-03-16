@@ -51,14 +51,36 @@
 -(void)checkDictionary:(NSMutableDictionary *)d size:(NSUInteger)s {
 	[self checkDictionarySize:d size:s];
 	[self forMutableDictionary:d size:s func:^(NSMutableDictionary *d, int i) {
-		NSString *key = [self key:i];
-		NSString *expected = [self val:i];
+		id key = [self key:i];
+		id expected = [self val:i];
 		id e = [d objectForKey:key];
 		GHAssertEqualObjects(expected, e, @"%@ != %@", e, expected);
 		GHTestLog(@"%d:{%@:%@}", i, key, e);
 	}];
 }
 
+-(void)checkKeys:(NSArray *)keys {
+	int i = 0;
+	for (id key in keys) {
+		id expected = [self key:i];
+		GHAssertEqualObjects(expected, key, @"%@ != %@", key, expected);
+		GHTestLog(@"%d:%@", i, key);
+		i++;
+	}
+	 
+}
+
+-(void)checkKeysReversed:(NSArray *)keys {
+	NSUInteger s = [keys count];
+	int i = 0;
+	for (id key in keys) {
+		int j = s - i - 1;
+		id expected = [self key:j];
+		GHAssertEqualObjects(expected, key, @"%@ != %@", key, expected);
+		GHTestLog(@"%d:%@", i, key);
+		i++;
+	}
+}
 
 //------------------------------------------------------------------------------
 #pragma mark init
@@ -114,8 +136,113 @@
 	[self checkDictionary:linkedDictionary size:testSize];
 }
 
-//-(void)setObject:(id)anObject forKey:(id)aKey
+-(void)test_keys_CPInsertionOrder {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPInsertionOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	[self checkKeys:[linkedDictionary keys]];
+}
 
+-(void)test_keys_get_CPAccessOrder {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPAccessOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	// vars
+	NSArray *keys = [linkedDictionary keys];
+	id key;
+	NSEnumerator *e;
+	// keys in insertion order
+	[self checkKeys:keys];
+	// access in reverse
+	e = [keys reverseObjectEnumerator];
+	while (key = [e nextObject]) {
+		//GHTestLog(@"getting: %@", key);
+		[linkedDictionary objectForKey:key];
+	}
+	// check reversed
+	[self checkKeysReversed:[linkedDictionary keys]];
+	// access in original order
+	e = [keys objectEnumerator];
+	while (key = [e nextObject]) {
+		//GHTestLog(@"getting: %@", key);
+		[linkedDictionary objectForKey:key];
+	}
+	[self checkKeys:[linkedDictionary keys]];
+}
 
+-(void)test_keys_set_CPAccessOrder {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPAccessOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	// vars
+	NSArray *keys = [linkedDictionary keys];
+	id key;
+	NSEnumerator *e;
+	// keys in insertion order
+	[self checkKeys:keys];
+	// set in reverse
+	e = [keys reverseObjectEnumerator];
+	while (key = [e nextObject]) {
+		[linkedDictionary setObject:@"" forKey:key];
+	}
+	// check reversed
+	[self checkKeysReversed:[linkedDictionary keys]];
+	// set in original order
+	e = [keys objectEnumerator];
+	while (key = [e nextObject]) {
+		[linkedDictionary setObject:@"" forKey:key];
+	}
+	[self checkKeys:[linkedDictionary keys]];
+}
+
+-(void)test_keys_get_set_random_CPAccessOrder {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPAccessOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	
+	int lastIndex = testSize - 1;
+	
+	// test last index
+	id key = [self key:lastIndex];
+	GHAssertEqualObjects(key, [[linkedDictionary keys] objectAtIndex:lastIndex], @"", nil);
+	
+	// access and test random index
+	int i = arc4random() % testSize;
+	key = [self key:i];
+	[linkedDictionary objectForKey:key];
+	GHAssertEqualObjects(key, [[linkedDictionary keys] objectAtIndex:lastIndex], @"", nil);
+	
+	// set and test random index
+	i = arc4random() % testSize;
+	key = [self key:i];
+	[linkedDictionary setObject:@"" forKey:key];
+	GHAssertEqualObjects(key, [[linkedDictionary keys] objectAtIndex:lastIndex], @"", nil);
+}
+
+//------------------------------------------------------------------------------
+#pragma mark remove
+
+-(void)test_remove {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPInsertionOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	[self forMutableDictionaryReverse:linkedDictionary size:testSize func:^(NSMutableDictionary *d, int i) {
+		id key = [self key:i];
+		GHAssertNotNil([d objectForKey:key], @"", nil);
+		[d removeObjectForKey:key];
+		GHAssertNil([d objectForKey:key], @"", nil);
+		//GHTestLog(@"%d:%@ removed", i, key);
+		[self checkSize:linkedDictionary size:i];
+	}];
+}
+
+-(void)test_removeAllObjects {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPInsertionOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	[linkedDictionary removeAllObjects];
+	[self checkSize:linkedDictionary size:0];
+}
+
+-(void)test_removeObjectsForKeys {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPInsertionOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	[linkedDictionary removeObjectsForKeys:[linkedDictionary keys]];
+	[self checkSize:linkedDictionary size:0];
+}
 
 @end

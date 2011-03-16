@@ -28,4 +28,11 @@
 	return self;
 }
 
+-(void)dealloc {
+	[element release];
+	next = nil;
+	previous = nil;
+	[super dealloc];
+}
+
 @end

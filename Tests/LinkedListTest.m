@@ -11,19 +11,20 @@
 #import "CPBaseTestCase.h";
 #import "CPLinkedList.h"
 
-@interface LinkedListTest : CPBaseTestCase
+@interface LinkedListTest : CPBaseTestCase {
+	CPLinkedList *linkedList;
+	NSUInteger testSize;	
+}
 @end
 
 @implementation LinkedListTest
-
-CPLinkedList *linkedList;
-NSUInteger testSize = 1023;
 
 //------------------------------------------------------------------------------
 #pragma mark setUp/tearDown
 
 -(void)setUp {
 	linkedList = [[CPLinkedList alloc] init];
+	testSize = 1023;
 }
 
 -(void)tearDown {

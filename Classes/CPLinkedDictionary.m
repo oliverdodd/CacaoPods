@@ -45,7 +45,8 @@
 	return [self initWithCapacity:0 keyOrder:CPInsertionOrder];
 }
 
-- (void) dealloc {
+-(void)dealloc {
+	[self removeAllObjects];
 	[dictionary release];
     [sentinel release];
 	[super dealloc];
@@ -70,13 +71,16 @@
 #pragma mark node operations
 
 -(void)addNodeBefore:(CPLinkedMapNode *)new node:(CPLinkedMapNode *)n {
+	new.next = n;
+	new.previous = n.previous;
 	new.previous.next = new;
 	new.next.previous = new;
 }
 
 -(CPLinkedMapNode *)addBefore:(id)k value:(id)v node:(CPLinkedMapNode *)n {
 	CPLinkedMapNode *new = [[CPLinkedMapNode alloc] init:k value:v next:n previous:n.previous];
-	[self addNodeBefore:new node:n];
+	new.previous.next = new;
+	new.next.previous = new;
 	return new;
 }
 
@@ -84,7 +88,6 @@
 	n.previous.next = n.next;
 	n.next.previous = n.previous;
 }
-
 
 /*-----------------------------------------------------------------------------\
  |	NSDictionary
@@ -94,6 +97,7 @@
 -(id)objectForKey:(id)aKey {
 	CPLinkedMapNode *n = [dictionary objectForKey:aKey];
 	if (n != nil && keyOrder == CPAccessOrder) {
+		[self removeNode:n];
 		[self addNodeBefore:n node:sentinel];
 	}
 	return n.value;
@@ -125,8 +129,22 @@
 	[dictionary removeObjectForKey:aKey];
 }
 
-//- (void)removeAllObjects;
-//- (void)removeObjectsForKeys:(NSArray *)keyArray;
+-(void)removeAllObjects {
+	[dictionary removeAllObjects];
+	
+	CPLinkedMapNode *n;
+	while ((n = sentinel.next) != sentinel) {
+		sentinel.next = n.next;
+		[n release];
+	}
+	sentinel.previous = sentinel;
+	
+}
+
+-(void)removeObjectsForKeys:(NSArray *)keyArray {
+	for (id key in keyArray)
+		[self removeObjectForKey:key];
+}
 
 
 /*-----------------------------------------------------------------------------\
