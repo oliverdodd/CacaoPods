@@ -167,6 +167,7 @@
 	CPLinkedNode *n = [self entry:index];
 	id element = n.element;
 	[self removeNode:n];
+	[n release];
 	return element;
 }
 

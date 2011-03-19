@@ -33,8 +33,6 @@
 -(void)dealloc {
 	[key release];
 	[value release];
-	next = nil;
-	previous = nil;
 	[super dealloc];
 }
 

@@ -245,4 +245,56 @@
 	[self checkSize:linkedDictionary size:0];
 }
 
+-(void)test_removeFirstObject {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPInsertionOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	
+	id key = [self key:0];
+	GHAssertNotNil([linkedDictionary objectForKey:key], @"", nil);
+	
+	[linkedDictionary removeFirstObject];
+	GHAssertNil([linkedDictionary objectForKey:key], @"", nil);
+	
+	[self checkSize:linkedDictionary size:testSize - 1];
+}
+
+-(void)test_removeFirstObject_all {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPInsertionOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	int i = 0;
+	for (id key in [linkedDictionary keys]) {
+		GHAssertNotNil([linkedDictionary objectForKey:key], @"", nil);
+		[linkedDictionary removeFirstObject];
+		GHAssertNil([linkedDictionary objectForKey:key], @"", nil);
+		[self checkSize:linkedDictionary size:(testSize - ++i)];
+	};
+}
+
+-(void)test_removeLastObject {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPInsertionOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	
+	id key = [self key:testSize - 1];
+	GHAssertNotNil([linkedDictionary objectForKey:key], @"", nil);
+	
+	[linkedDictionary removeLastObject];
+	GHAssertNil([linkedDictionary objectForKey:key], @"", nil);
+	
+	[self checkSize:linkedDictionary size:testSize - 1];
+}
+
+-(void)test_removeLastObject_all {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPInsertionOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	NSEnumerator *e = [[linkedDictionary keys] reverseObjectEnumerator];
+	int i = 0;
+	id key = nil;
+	while ((key = [e nextObject]) != nil) {
+		GHAssertNotNil([linkedDictionary objectForKey:key], @"", nil);
+		[linkedDictionary removeLastObject];
+		GHAssertNil([linkedDictionary objectForKey:key], @"", nil);
+		[self checkSize:linkedDictionary size:(testSize - ++i)];
+	};
+}
+
 @end

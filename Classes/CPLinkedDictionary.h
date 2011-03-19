@@ -27,6 +27,8 @@ typedef NSUInteger CPKeyOrder;
 -(id)initWithKeyOrder:(CPKeyOrder)order;
 -(id)initWithCapacity:(NSUInteger)numItems keyOrder:(CPKeyOrder)order;
 
+-(void)removeFirstObject;
+-(void)removeLastObject;
 -(void)removeAllObjects;
 -(void)removeObjectsForKeys:(NSArray *)keyArray;
 

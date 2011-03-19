@@ -15,10 +15,10 @@
 	CPLinkedMapNode *next;
 	CPLinkedMapNode *previous;
 }
-@property(copy) id key;
-@property(copy) id value;
-@property(retain) CPLinkedMapNode *next;
-@property(retain) CPLinkedMapNode *previous;
+@property(retain) id key;
+@property(retain) id value;
+@property(assign) CPLinkedMapNode *next;
+@property(assign) CPLinkedMapNode *previous;
 
 -(id)init:(id)aKey value:(id)aValue next:(id)n previous:(id)p;
 

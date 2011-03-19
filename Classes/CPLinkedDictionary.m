@@ -13,6 +13,7 @@
 -(CPLinkedMapNode *)addBefore:(id)k value:(id)value node:(CPLinkedMapNode *)n;
 -(void)addNodeBefore:(CPLinkedMapNode *)new node:(CPLinkedMapNode *)n;
 -(void)removeNode:(CPLinkedMapNode *)n;
+-(void)removeObjectAtNode:(CPLinkedMapNode *)n;
 @end
 
 
@@ -89,6 +90,12 @@
 	n.next.previous = n.previous;
 }
 
+-(void)removeObjectAtNode:(CPLinkedMapNode *)n {
+	[self removeNode:n];
+	[dictionary removeObjectForKey:n.key];
+	[n release];
+}
+
 /*-----------------------------------------------------------------------------\
  |	NSDictionary
  \----------------------------------------------------------------------------*/
@@ -118,15 +125,28 @@
 		n.value = anObject;
 		if (keyOrder == CPAccessOrder) {
 			[self removeNode:n];
-			n = [self addBefore:aKey value:anObject node:sentinel];
+			n.value = anObject;
+			[self addNodeBefore:n node:sentinel];
 		}
 		[dictionary setObject:n forKey:aKey];
 	}
 }
 
 -(void)removeObjectForKey:(id)aKey {
-	[self removeNode:[dictionary objectForKey:aKey]];
+	CPLinkedMapNode *n = [dictionary objectForKey:aKey];
+	[self removeNode:n];
 	[dictionary removeObjectForKey:aKey];
+	[n release];
+}
+
+-(void)removeFirstObject {
+	if ([self count] > 0)
+		[self removeObjectAtNode:sentinel.next];
+}
+
+-(void)removeLastObject {
+	if ([self count] > 0)
+		[self removeObjectAtNode:sentinel.previous];
 }
 
 -(void)removeAllObjects {

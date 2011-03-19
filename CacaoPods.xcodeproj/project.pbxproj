@@ -20,6 +20,8 @@
 		C4D2DD7F132C778F00799EE8 /* LinkedMapNodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DD73132C761800799EE8 /* LinkedMapNodeTest.m */; };
 		C4D2DE43132D082C00799EE8 /* CPBaseTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = C4D2DE41132D082C00799EE8 /* CPBaseTestCase.h */; };
 		C4D2DE44132D082C00799EE8 /* CPBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DE42132D082C00799EE8 /* CPBaseTestCase.m */; };
+		C4D2DF9B133424AD00799EE8 /* CPLeastRecentlyUsedCache.h in Headers */ = {isa = PBXBuildFile; fileRef = C4D2DF99133424AD00799EE8 /* CPLeastRecentlyUsedCache.h */; };
+		C4D2DF9C133424AD00799EE8 /* CPLeastRecentlyUsedCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DF9A133424AD00799EE8 /* CPLeastRecentlyUsedCache.m */; };
 		C4F38F6F13135136002B13B9 /* CPLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6813135136002B13B9 /* CPLinkedList.h */; };
 		C4F38F7013135136002B13B9 /* CPLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F38F6913135136002B13B9 /* CPLinkedList.m */; };
 		C4F38F7113135136002B13B9 /* CPList.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6A13135136002B13B9 /* CPList.h */; };
@@ -59,6 +61,8 @@
 		C4D2DD73132C761800799EE8 /* LinkedMapNodeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedMapNodeTest.m; sourceTree = "<group>"; };
 		C4D2DE41132D082C00799EE8 /* CPBaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPBaseTestCase.h; sourceTree = "<group>"; };
 		C4D2DE42132D082C00799EE8 /* CPBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPBaseTestCase.m; sourceTree = "<group>"; };
+		C4D2DF99133424AD00799EE8 /* CPLeastRecentlyUsedCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLeastRecentlyUsedCache.h; sourceTree = "<group>"; };
+		C4D2DF9A133424AD00799EE8 /* CPLeastRecentlyUsedCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLeastRecentlyUsedCache.m; sourceTree = "<group>"; };
 		C4F38F6813135136002B13B9 /* CPLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedList.h; sourceTree = "<group>"; };
 		C4F38F6913135136002B13B9 /* CPLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLinkedList.m; sourceTree = "<group>"; };
 		C4F38F6A13135136002B13B9 /* CPList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPList.h; sourceTree = "<group>"; };
@@ -155,7 +159,7 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		C4D2DD55132C6EC800799EE8 /* nodes */ = {
+		C4D2DD55132C6EC800799EE8 /* node */ = {
 			isa = PBXGroup;
 			children = (
 				C4F38F8613135708002B13B9 /* CPLinkedNode.h */,
@@ -163,7 +167,23 @@
 				C4D2DD5E132C700300799EE8 /* CPLinkedMapNode.h */,
 				C4D2DD5F132C700300799EE8 /* CPLinkedMapNode.m */,
 			);
-			name = nodes;
+			name = node;
+			sourceTree = "<group>";
+		};
+		C4D2DF981334247900799EE8 /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				C4D2DF99133424AD00799EE8 /* CPLeastRecentlyUsedCache.h */,
+				C4D2DF9A133424AD00799EE8 /* CPLeastRecentlyUsedCache.m */,
+			);
+			name = cache;
+			sourceTree = "<group>";
+		};
+		C4D2DF9D133425A700799EE8 /* enumerator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = enumerator;
 			sourceTree = "<group>";
 		};
 		C4F38F6713135136002B13B9 /* Classes */ = {
@@ -171,7 +191,9 @@
 			children = (
 				C4F38F7C131351BC002B13B9 /* base */,
 				C4F38F7D131351E0002B13B9 /* mutable */,
-				C4D2DD55132C6EC800799EE8 /* nodes */,
+				C4D2DD55132C6EC800799EE8 /* node */,
+				C4D2DF9D133425A700799EE8 /* enumerator */,
+				C4D2DF981334247900799EE8 /* cache */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -248,6 +270,7 @@
 				C4D2DD01132C32E800799EE8 /* CPLinkedDictionary.h in Headers */,
 				C4D2DD60132C700300799EE8 /* CPLinkedMapNode.h in Headers */,
 				C4D2DE43132D082C00799EE8 /* CPBaseTestCase.h in Headers */,
+				C4D2DF9B133424AD00799EE8 /* CPLeastRecentlyUsedCache.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +369,7 @@
 				C4D2DD02132C32E800799EE8 /* CPLinkedDictionary.m in Sources */,
 				C4D2DD61132C700300799EE8 /* CPLinkedMapNode.m in Sources */,
 				C4D2DE44132D082C00799EE8 /* CPBaseTestCase.m in Sources */,
+				C4D2DF9C133424AD00799EE8 /* CPLeastRecentlyUsedCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

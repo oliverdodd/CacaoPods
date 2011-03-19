@@ -12,9 +12,9 @@
 	CPLinkedNode *next;
 	CPLinkedNode *previous;
 }
-@property(copy) id element;
-@property(retain) CPLinkedNode *next;
-@property(retain) CPLinkedNode *previous;
+@property(retain) id element;
+@property(assign) CPLinkedNode *next;
+@property(assign) CPLinkedNode *previous;
 
 -(id)init:(id)e next:(id)n previous:(id)p;
 
