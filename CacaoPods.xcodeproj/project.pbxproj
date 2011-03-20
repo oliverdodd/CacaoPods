@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C450FFBF1335A15400F999C4 /* LeastRecentlyUsedCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C450FFA813359A1100F999C4 /* LeastRecentlyUsedCacheTest.m */; };
+		C450FFEB1336484900F999C4 /* CPLinkedListEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = C450FFE91336484900F999C4 /* CPLinkedListEnumerator.h */; };
+		C450FFEC1336484900F999C4 /* CPLinkedListEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C450FFEA1336484900F999C4 /* CPLinkedListEnumerator.m */; };
 		C451C0A71313E43700955481 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C451C0A61313E43700955481 /* GHUnit.framework */; };
 		C451C0B01313E50F00955481 /* LinkedListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F38FD113136C7E002B13B9 /* LinkedListTest.m */; };
 		C451C0B21313E50F00955481 /* LinkedNodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C451BFEA1313725500955481 /* LinkedNodeTest.m */; };
@@ -51,6 +53,8 @@
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* CacaoPods_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacaoPods_Prefix.pch; sourceTree = "<group>"; };
 		C450FFA813359A1100F999C4 /* LeastRecentlyUsedCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeastRecentlyUsedCacheTest.m; sourceTree = "<group>"; };
+		C450FFE91336484900F999C4 /* CPLinkedListEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedListEnumerator.h; sourceTree = "<group>"; };
+		C450FFEA1336484900F999C4 /* CPLinkedListEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLinkedListEnumerator.m; sourceTree = "<group>"; };
 		C451BFEA1313725500955481 /* LinkedNodeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedNodeTest.m; sourceTree = "<group>"; };
 		C451C09C1313E41F00955481 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C451C0A61313E43700955481 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnit.framework; path = Library/Frameworks/GHUnit.framework; sourceTree = SDKROOT; };
@@ -184,6 +188,8 @@
 		C4D2DF9D133425A700799EE8 /* enumerator */ = {
 			isa = PBXGroup;
 			children = (
+				C450FFE91336484900F999C4 /* CPLinkedListEnumerator.h */,
+				C450FFEA1336484900F999C4 /* CPLinkedListEnumerator.m */,
 			);
 			name = enumerator;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 				C4D2DD60132C700300799EE8 /* CPLinkedMapNode.h in Headers */,
 				C4D2DE43132D082C00799EE8 /* CPBaseTestCase.h in Headers */,
 				C4D2DF9B133424AD00799EE8 /* CPLeastRecentlyUsedCache.h in Headers */,
+				C450FFEB1336484900F999C4 /* CPLinkedListEnumerator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +381,7 @@
 				C4D2DD61132C700300799EE8 /* CPLinkedMapNode.m in Sources */,
 				C4D2DE44132D082C00799EE8 /* CPBaseTestCase.m in Sources */,
 				C4D2DF9C133424AD00799EE8 /* CPLeastRecentlyUsedCache.m in Sources */,
+				C450FFEC1336484900F999C4 /* CPLinkedListEnumerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

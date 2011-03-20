@@ -302,5 +302,22 @@
 	GHAssertEquals(testSize, [a count], @"", nil);
 }
 
+//------------------------------------------------------------------------------
+#pragma mark enumerator
+
+-(void)test_enumerator {
+	// add
+	[self fillList:linkedList size:testSize];
+	// enumerate
+	NSEnumerator *enumerator = [linkedList objectEnumerator];
+	id e = nil;
+	int i = 0;
+	while (e = [enumerator nextObject]) {
+		GHAssertEqualObjects([self val:i], e, @"", nil);
+		GHTestLog(@"%d:%@", i, e);
+		i++;
+	}
+	GHAssertEquals(testSize, (NSUInteger) i, @"", nil);
+}
 
 @end

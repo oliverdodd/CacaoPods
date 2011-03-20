@@ -8,6 +8,7 @@
 //
 
 #import "CPLinkedList.h"
+#import "CPLinkedListEnumerator.h"
 
 @interface CPLinkedList (Private)
 -(void)checkIndex:(int)index;
@@ -222,7 +223,7 @@
 #pragma mark enumeration
 
 -(NSEnumerator *)objectEnumerator {
-	return [[self array] objectEnumerator];
+	return [CPLinkedListEnumerator enumeratorWithSentinel:sentinel];
 }
 
 // http://cocoawithlove.com/2008/05/implementing-countbyenumeratingwithstat.html
