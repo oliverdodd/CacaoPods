@@ -65,4 +65,17 @@
 	GHAssertEquals(s, [d count], @"dictionary size %d != %d!", [d count], s);
 }
 
+/*-----------------------------------------------------------------------------\
+ |	test values
+ \----------------------------------------------------------------------------*/
+#pragma mark test values
+
+-(id)key:(int)i {
+	return [NSString stringWithFormat:@"Key%d",i];
+}
+
+-(id)val:(int)i {
+	return [NSString stringWithFormat:@"Value%d",i];
+}
+
 @end

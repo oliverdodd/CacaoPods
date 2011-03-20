@@ -34,10 +34,6 @@
 //------------------------------------------------------------------------------
 #pragma mark helpers
 
--(id)val:(int)i {
-	return [NSString stringWithFormat:@"Test%d",i];
-}
-
 -(void)fillList:(CPLinkedList *)l size:(NSUInteger)s {
 	[self forLinkedList:l size:s func:^(CPLinkedList *l, int i) { [l add:[self val:i]]; }];
 }

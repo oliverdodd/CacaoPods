@@ -26,4 +26,7 @@
 -(void)checkSize:(id<CPCollection>)l size:(NSUInteger)s;
 -(void)checkDictionarySize:(NSDictionary *)d size:(NSUInteger)s;
 
+-(id)key:(int)i;
+-(id)val:(int)i;
+
 @end

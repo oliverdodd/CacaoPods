@@ -34,14 +34,6 @@
 //------------------------------------------------------------------------------
 #pragma mark helpers
 
--(id)key:(int)i {
-	return [NSString stringWithFormat:@"Key%d",i];
-}
-
--(id)val:(int)i {
-	return [NSString stringWithFormat:@"Value%d",i];
-}
-
 -(void)fillDictionary:(NSMutableDictionary *)d size:(NSUInteger)s {
 	[self forMutableDictionary:d size:s func:^(NSMutableDictionary *d, int i) {
 		[d setObject:[self val:i] forKey:[self key:i]];

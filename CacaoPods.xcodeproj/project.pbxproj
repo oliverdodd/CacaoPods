@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C450FFBF1335A15400F999C4 /* LeastRecentlyUsedCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C450FFA813359A1100F999C4 /* LeastRecentlyUsedCacheTest.m */; };
 		C451C0A71313E43700955481 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C451C0A61313E43700955481 /* GHUnit.framework */; };
 		C451C0B01313E50F00955481 /* LinkedListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F38FD113136C7E002B13B9 /* LinkedListTest.m */; };
 		C451C0B21313E50F00955481 /* LinkedNodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C451BFEA1313725500955481 /* LinkedNodeTest.m */; };
@@ -49,6 +50,7 @@
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* CacaoPods_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacaoPods_Prefix.pch; sourceTree = "<group>"; };
+		C450FFA813359A1100F999C4 /* LeastRecentlyUsedCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeastRecentlyUsedCacheTest.m; sourceTree = "<group>"; };
 		C451BFEA1313725500955481 /* LinkedNodeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedNodeTest.m; sourceTree = "<group>"; };
 		C451C09C1313E41F00955481 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C451C0A61313E43700955481 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnit.framework; path = Library/Frameworks/GHUnit.framework; sourceTree = SDKROOT; };
@@ -244,6 +246,7 @@
 			children = (
 				C4D2DE41132D082C00799EE8 /* CPBaseTestCase.h */,
 				C4D2DE42132D082C00799EE8 /* CPBaseTestCase.m */,
+				C450FFA813359A1100F999C4 /* LeastRecentlyUsedCacheTest.m */,
 				C4D2DD34132C64A500799EE8 /* LinkedDictionaryTest.m */,
 				C4F38FD113136C7E002B13B9 /* LinkedListTest.m */,
 				C4D2DD73132C761800799EE8 /* LinkedMapNodeTest.m */,
@@ -352,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C450FFBF1335A15400F999C4 /* LeastRecentlyUsedCacheTest.m in Sources */,
 				C4D2DD7E132C778F00799EE8 /* LinkedDictionaryTest.m in Sources */,
 				C451C0B01313E50F00955481 /* LinkedListTest.m in Sources */,
 				C4D2DD7F132C778F00799EE8 /* LinkedMapNodeTest.m in Sources */,
