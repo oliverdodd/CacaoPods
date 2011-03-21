@@ -44,7 +44,7 @@
 	for (id e in l) {
 		NSString *expected = [self val:i];
 		GHAssertEqualObjects(expected, e, @"%@ != %@", e, expected);
-		GHTestLog(@"%d:%@", i, e);
+		// GHTestLog(@"%d:%@", i, e);
 		i++;
 	}
 }
@@ -55,7 +55,7 @@
 		NSString *expected = [self val:i];
 		id e = [l get:i];
 		GHAssertEqualObjects(expected, e, @"%@ != %@", e, expected);
-		GHTestLog(@"%d:%@", i, e);
+		// GHTestLog(@"%d:%@", i, e);
 	}];
 }
 
@@ -297,7 +297,7 @@
 	[self forArray:a size:testSize func:^(NSArray *a, int i) {
 		id e = [a objectAtIndex:i];
 		GHAssertEqualObjects([self val:i], e, @"", nil);
-		GHTestLog(@"%d:%@", i, e);
+		// GHTestLog(@"%d:%@", i, e);
 	}];
 	GHAssertEquals(testSize, [a count], @"", nil);
 }
@@ -314,7 +314,7 @@
 	int i = 0;
 	while (e = [enumerator nextObject]) {
 		GHAssertEqualObjects([self val:i], e, @"", nil);
-		GHTestLog(@"%d:%@", i, e);
+		// GHTestLog(@"%d:%@", i, e);
 		i++;
 	}
 	GHAssertEquals(testSize, (NSUInteger) i, @"", nil);

@@ -1,5 +1,5 @@
 //
-//  CPLinkedListEnumerator.m
+//  CPLinkedDictionaryEnumerator.m
 //  CacaoPods
 //
 //  Created by Oliver C Dodd on 2011-03-20.
@@ -7,16 +7,16 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import "CPLinkedListEnumerator.h"
+#import "CPLinkedDictionaryEnumerator.h"
 
 
-@implementation CPLinkedListEnumerator
+@implementation CPLinkedDictionaryEnumerator
 
-+(NSEnumerator *)enumeratorWithSentinel:(CPLinkedNode *)sentinelNode {
-	return [[[CPLinkedListEnumerator alloc] initWithSentinel:sentinelNode] autorelease];
++(NSEnumerator *)enumeratorWithSentinel:(CPLinkedMapNode *)sentinelNode {
+	return [[[CPLinkedDictionaryEnumerator alloc] initWithSentinel:sentinelNode] autorelease];
 }
 
--(id)initWithSentinel:(CPLinkedNode *)sentinelNode {
+-(id)initWithSentinel:(CPLinkedMapNode *)sentinelNode {
 	if (self = [super init]) {
 		sentinel = sentinelNode;
 		currentNode = sentinelNode;
@@ -31,11 +31,10 @@
 -(id)nextObject {
 	if ([self hasNext]) {
 		currentNode = currentNode.next;
-		return currentNode.element;
+		return currentNode;
 	}
 	return nil;
-		
+	
 }
-
 
 @end

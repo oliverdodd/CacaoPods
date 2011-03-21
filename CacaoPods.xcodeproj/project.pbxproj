@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C45000141336981A00F999C4 /* CPLinkedDictionaryEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = C45000121336981A00F999C4 /* CPLinkedDictionaryEnumerator.h */; };
+		C45000151336981A00F999C4 /* CPLinkedDictionaryEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C45000131336981A00F999C4 /* CPLinkedDictionaryEnumerator.m */; };
+		C4500018133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = C4500016133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.h */; };
+		C4500019133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4500017133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.m */; };
+		C450001C1336990400F999C4 /* CPLinkedDictionaryValueEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = C450001A1336990400F999C4 /* CPLinkedDictionaryValueEnumerator.h */; };
+		C450001D1336990400F999C4 /* CPLinkedDictionaryValueEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C450001B1336990400F999C4 /* CPLinkedDictionaryValueEnumerator.m */; };
 		C450FFBF1335A15400F999C4 /* LeastRecentlyUsedCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C450FFA813359A1100F999C4 /* LeastRecentlyUsedCacheTest.m */; };
 		C450FFEB1336484900F999C4 /* CPLinkedListEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = C450FFE91336484900F999C4 /* CPLinkedListEnumerator.h */; };
 		C450FFEC1336484900F999C4 /* CPLinkedListEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C450FFEA1336484900F999C4 /* CPLinkedListEnumerator.m */; };
@@ -15,14 +21,14 @@
 		C451C0B21313E50F00955481 /* LinkedNodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C451BFEA1313725500955481 /* LinkedNodeTest.m */; };
 		C451C0B31313E50F00955481 /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = C451C0AC1313E4DB00955481 /* GHUnitTestMain.m */; };
 		C451C15D1314C02E00955481 /* libCacaoPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libCacaoPods.a */; };
+		C4AFA30A1336ACEA00D7ECC1 /* NSEnumerator+hasNext.h in Headers */ = {isa = PBXBuildFile; fileRef = C4AFA3091336ACEA00D7ECC1 /* NSEnumerator+hasNext.h */; };
+		C4AFA3FD1336E7F200D7ECC1 /* CPBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DE42132D082C00799EE8 /* CPBaseTestCase.m */; };
 		C4D2DD01132C32E800799EE8 /* CPLinkedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = C4D2DCFF132C32E800799EE8 /* CPLinkedDictionary.h */; };
 		C4D2DD02132C32E800799EE8 /* CPLinkedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DD00132C32E800799EE8 /* CPLinkedDictionary.m */; };
 		C4D2DD60132C700300799EE8 /* CPLinkedMapNode.h in Headers */ = {isa = PBXBuildFile; fileRef = C4D2DD5E132C700300799EE8 /* CPLinkedMapNode.h */; };
 		C4D2DD61132C700300799EE8 /* CPLinkedMapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DD5F132C700300799EE8 /* CPLinkedMapNode.m */; };
 		C4D2DD7E132C778F00799EE8 /* LinkedDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DD34132C64A500799EE8 /* LinkedDictionaryTest.m */; };
 		C4D2DD7F132C778F00799EE8 /* LinkedMapNodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DD73132C761800799EE8 /* LinkedMapNodeTest.m */; };
-		C4D2DE43132D082C00799EE8 /* CPBaseTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = C4D2DE41132D082C00799EE8 /* CPBaseTestCase.h */; };
-		C4D2DE44132D082C00799EE8 /* CPBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DE42132D082C00799EE8 /* CPBaseTestCase.m */; };
 		C4D2DF9B133424AD00799EE8 /* CPLeastRecentlyUsedCache.h in Headers */ = {isa = PBXBuildFile; fileRef = C4D2DF99133424AD00799EE8 /* CPLeastRecentlyUsedCache.h */; };
 		C4D2DF9C133424AD00799EE8 /* CPLeastRecentlyUsedCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DF9A133424AD00799EE8 /* CPLeastRecentlyUsedCache.m */; };
 		C4F38F6F13135136002B13B9 /* CPLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6813135136002B13B9 /* CPLinkedList.h */; };
@@ -34,7 +40,6 @@
 		C4F38F7713135157002B13B9 /* CPMutableList.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F7613135157002B13B9 /* CPMutableList.h */; };
 		C4F38F8813135708002B13B9 /* CPLinkedNode.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F8613135708002B13B9 /* CPLinkedNode.h */; };
 		C4F38F8913135708002B13B9 /* CPLinkedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F38F8713135708002B13B9 /* CPLinkedNode.m */; };
-		D2AAC088055469A000DB518D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +57,12 @@
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* CacaoPods_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacaoPods_Prefix.pch; sourceTree = "<group>"; };
+		C45000121336981A00F999C4 /* CPLinkedDictionaryEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedDictionaryEnumerator.h; sourceTree = "<group>"; };
+		C45000131336981A00F999C4 /* CPLinkedDictionaryEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLinkedDictionaryEnumerator.m; sourceTree = "<group>"; };
+		C4500016133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedDictionaryKeyEnumerator.h; sourceTree = "<group>"; };
+		C4500017133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLinkedDictionaryKeyEnumerator.m; sourceTree = "<group>"; };
+		C450001A1336990400F999C4 /* CPLinkedDictionaryValueEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedDictionaryValueEnumerator.h; sourceTree = "<group>"; };
+		C450001B1336990400F999C4 /* CPLinkedDictionaryValueEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLinkedDictionaryValueEnumerator.m; sourceTree = "<group>"; };
 		C450FFA813359A1100F999C4 /* LeastRecentlyUsedCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeastRecentlyUsedCacheTest.m; sourceTree = "<group>"; };
 		C450FFE91336484900F999C4 /* CPLinkedListEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedListEnumerator.h; sourceTree = "<group>"; };
 		C450FFEA1336484900F999C4 /* CPLinkedListEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLinkedListEnumerator.m; sourceTree = "<group>"; };
@@ -59,6 +70,7 @@
 		C451C09C1313E41F00955481 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C451C0A61313E43700955481 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnit.framework; path = Library/Frameworks/GHUnit.framework; sourceTree = SDKROOT; };
 		C451C0AC1313E4DB00955481 /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
+		C4AFA3091336ACEA00D7ECC1 /* NSEnumerator+hasNext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEnumerator+hasNext.h"; sourceTree = "<group>"; };
 		C4D2DCFF132C32E800799EE8 /* CPLinkedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedDictionary.h; sourceTree = "<group>"; };
 		C4D2DD00132C32E800799EE8 /* CPLinkedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLinkedDictionary.m; sourceTree = "<group>"; };
 		C4D2DD34132C64A500799EE8 /* LinkedDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedDictionaryTest.m; sourceTree = "<group>"; };
@@ -100,7 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2AAC088055469A000DB518D /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,8 +199,15 @@
 		C4D2DF9D133425A700799EE8 /* enumerator */ = {
 			isa = PBXGroup;
 			children = (
+				C4AFA3091336ACEA00D7ECC1 /* NSEnumerator+hasNext.h */,
 				C450FFE91336484900F999C4 /* CPLinkedListEnumerator.h */,
 				C450FFEA1336484900F999C4 /* CPLinkedListEnumerator.m */,
+				C45000121336981A00F999C4 /* CPLinkedDictionaryEnumerator.h */,
+				C45000131336981A00F999C4 /* CPLinkedDictionaryEnumerator.m */,
+				C4500016133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.h */,
+				C4500017133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.m */,
+				C450001A1336990400F999C4 /* CPLinkedDictionaryValueEnumerator.h */,
+				C450001B1336990400F999C4 /* CPLinkedDictionaryValueEnumerator.m */,
 			);
 			name = enumerator;
 			sourceTree = "<group>";
@@ -278,9 +296,12 @@
 				C4F38F8813135708002B13B9 /* CPLinkedNode.h in Headers */,
 				C4D2DD01132C32E800799EE8 /* CPLinkedDictionary.h in Headers */,
 				C4D2DD60132C700300799EE8 /* CPLinkedMapNode.h in Headers */,
-				C4D2DE43132D082C00799EE8 /* CPBaseTestCase.h in Headers */,
 				C4D2DF9B133424AD00799EE8 /* CPLeastRecentlyUsedCache.h in Headers */,
 				C450FFEB1336484900F999C4 /* CPLinkedListEnumerator.h in Headers */,
+				C45000141336981A00F999C4 /* CPLinkedDictionaryEnumerator.h in Headers */,
+				C4500018133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.h in Headers */,
+				C450001C1336990400F999C4 /* CPLinkedDictionaryValueEnumerator.h in Headers */,
+				C4AFA30A1336ACEA00D7ECC1 /* NSEnumerator+hasNext.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4AFA3FD1336E7F200D7ECC1 /* CPBaseTestCase.m in Sources */,
 				C450FFBF1335A15400F999C4 /* LeastRecentlyUsedCacheTest.m in Sources */,
 				C4D2DD7E132C778F00799EE8 /* LinkedDictionaryTest.m in Sources */,
 				C451C0B01313E50F00955481 /* LinkedListTest.m in Sources */,
@@ -379,9 +401,11 @@
 				C4F38F8913135708002B13B9 /* CPLinkedNode.m in Sources */,
 				C4D2DD02132C32E800799EE8 /* CPLinkedDictionary.m in Sources */,
 				C4D2DD61132C700300799EE8 /* CPLinkedMapNode.m in Sources */,
-				C4D2DE44132D082C00799EE8 /* CPBaseTestCase.m in Sources */,
 				C4D2DF9C133424AD00799EE8 /* CPLeastRecentlyUsedCache.m in Sources */,
 				C450FFEC1336484900F999C4 /* CPLinkedListEnumerator.m in Sources */,
+				C45000151336981A00F999C4 /* CPLinkedDictionaryEnumerator.m in Sources */,
+				C4500019133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.m in Sources */,
+				C450001D1336990400F999C4 /* CPLinkedDictionaryValueEnumerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,8 +433,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CacaoPods_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = CacaoPods;
+				VALID_ARCHS = "armv6 armv7 i386 ppc ppc64 ppc7400 ppc970 x86_64";
 			};
 			name = Debug;
 		};
@@ -418,13 +443,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CacaoPods_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = CacaoPods;
+				VALID_ARCHS = "armv6 armv7 i386 ppc ppc64 ppc7400 ppc970 x86_64";
 			};
 			name = Release;
 		};
@@ -490,6 +517,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "Test-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,

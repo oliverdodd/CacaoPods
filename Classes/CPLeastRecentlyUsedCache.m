@@ -8,6 +8,7 @@
 //
 
 #import "CPLeastRecentlyUsedCache.h"
+#import "NSEnumerator+hasNext.h"
 
 
 @implementation CPLeastRecentlyUsedCache
@@ -57,6 +58,32 @@
 	[linkedDictionary setObject:anObject forKey:aKey];
 	while ([linkedDictionary count] > max)
 		[linkedDictionary removeFirstObject];
+}
+
+/*-----------------------------------------------------------------------------\
+ |	enumeration
+ \----------------------------------------------------------------------------*/
+#pragma mark enumeration
+
+-(NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len {
+	NSEnumerator *enumerator;
+	if (state->state == 0) {
+		enumerator = [linkedDictionary valueEnumerator];
+	} else {
+		enumerator = (NSEnumerator *)state->state;
+	}
+	
+	NSUInteger batchCount = 0;
+	while ([enumerator hasNext] && batchCount < len) {
+		stackbuf[batchCount] = [enumerator nextObject];
+		batchCount++;
+	}
+	
+	state->state = (unsigned long)enumerator;
+	state->itemsPtr = stackbuf;
+	state->mutationsPtr = (unsigned long *)self;
+	
+	return batchCount;
 }
 
 @end

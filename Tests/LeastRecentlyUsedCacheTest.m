@@ -50,7 +50,7 @@
 		id expected = [self val:i];
 		id e = [c objectForKey:key];
 		GHAssertEqualObjects(expected, e, @"%@ != %@", e, expected);
-		GHTestLog(@"%d:{%@:%@}", i, key, e);
+		// GHTestLog(@"%d:{%@:%@}", i, key, e);
 	}
 }
 
@@ -58,7 +58,7 @@
 #pragma mark init
 
 -(void)test_initWithCapacity {
-	GHAssertNotNil(cache, @"LinkedDictionary should not be nil");
+	GHAssertNotNil(cache, @"LeastRecentlyUsedCache should not be nil");
 	[self checkSize:cache size:0];
 }
 
@@ -78,6 +78,20 @@
 	[cache setObject:[self val:i] forKey:[self key:i]];
 	GHAssertNotNil([cache objectForKey:[self key:i]], @"");
 	GHAssertNil([cache objectForKey:[self key:0]], @"");
+}
+
+//------------------------------------------------------------------------------
+#pragma mark enumeration
+
+-(void)test_countByEnumeratingWithState {
+	[self fillCache:cache size:testSize];
+	int i = 0;
+	for (id e in cache) {
+		GHAssertEqualObjects([self val:i], e, @"", nil);
+		// GHTestLog(@"%d:%@", i, e);
+		i++;
+	}
+	GHAssertEquals(testSize, (NSUInteger) i, @"", nil);
 }
 
 

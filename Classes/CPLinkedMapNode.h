@@ -7,8 +7,6 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import <Cocoa/Cocoa.h>
-
 @interface CPLinkedMapNode : NSObject {
 	id key;
 	id value;

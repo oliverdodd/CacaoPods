@@ -8,12 +8,16 @@
 //
 
 #import "CPLinkedDictionary.h"
+#import "CPLinkedDictionaryKeyEnumerator.h"
+#import "CPLinkedDictionaryValueEnumerator.h"
+
 
 @interface CPLinkedDictionary (Private)
 -(CPLinkedMapNode *)addBefore:(id)k value:(id)value node:(CPLinkedMapNode *)n;
 -(void)addNodeBefore:(CPLinkedMapNode *)new node:(CPLinkedMapNode *)n;
 -(void)removeNode:(CPLinkedMapNode *)n;
 -(void)removeObjectAtNode:(CPLinkedMapNode *)n;
+-(NSArray *)arrayFromEnumerator:(NSEnumerator *)e;
 @end
 
 
@@ -168,38 +172,32 @@
 
 
 /*-----------------------------------------------------------------------------\
- |	arrays
+ |	arrays / enumerators
  \----------------------------------------------------------------------------*/
-#pragma mark arrays
+#pragma mark arrays / enumerators
 
--(NSArray *)keys {
+-(NSArray *)arrayFromEnumerator:(NSEnumerator *)e {
 	NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self count]];
-	
-	CPLinkedMapNode *currentNode = sentinel.next;
-	while (currentNode != sentinel) {
-		[array addObject:currentNode.key];
-		currentNode = currentNode.next;
-    }
+	id v = nil;
+	while ((v = [e nextObject]) != nil)
+		[array addObject:v];
 	return array;
 }
 
 -(NSEnumerator *)keyEnumerator {
-	return [[self keys] objectEnumerator];
+	return [CPLinkedDictionaryKeyEnumerator enumeratorWithSentinel:sentinel];
 }
 
--(NSArray *)values {
-	NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self count]];
-	
-	CPLinkedMapNode *currentNode = sentinel.next;
-	while (currentNode != sentinel) {
-		[array addObject:currentNode.value];
-		currentNode = currentNode.next;
-    }
-	return array;
+-(NSArray *)keys {
+	return [self arrayFromEnumerator:[self keyEnumerator]];
 }
 
 -(NSEnumerator *)valueEnumerator {
-	return [[self values] objectEnumerator];
+	return [CPLinkedDictionaryValueEnumerator enumeratorWithSentinel:sentinel];
+}
+
+-(NSArray *)values {
+	return [self arrayFromEnumerator:[self valueEnumerator]];;
 }
 
 @end

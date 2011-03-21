@@ -47,7 +47,7 @@
 		id expected = [self val:i];
 		id e = [d objectForKey:key];
 		GHAssertEqualObjects(expected, e, @"%@ != %@", e, expected);
-		GHTestLog(@"%d:{%@:%@}", i, key, e);
+		// GHTestLog(@"%d:{%@:%@}", i, key, e);
 	}];
 }
 
@@ -56,7 +56,7 @@
 	for (id key in keys) {
 		id expected = [self key:i];
 		GHAssertEqualObjects(expected, key, @"%@ != %@", key, expected);
-		GHTestLog(@"%d:%@", i, key);
+		// GHTestLog(@"%d:%@", i, key);
 		i++;
 	}
 	 
@@ -69,7 +69,7 @@
 		int j = s - i - 1;
 		id expected = [self key:j];
 		GHAssertEqualObjects(expected, key, @"%@ != %@", key, expected);
-		GHTestLog(@"%d:%@", i, key);
+		// GHTestLog(@"%d:%@", i, key);
 		i++;
 	}
 }
@@ -286,7 +286,40 @@
 		[linkedDictionary removeLastObject];
 		GHAssertNil([linkedDictionary objectForKey:key], @"", nil);
 		[self checkSize:linkedDictionary size:(testSize - ++i)];
-	};
+	}
 }
+
+//------------------------------------------------------------------------------
+#pragma mark enumerators
+
+-(void)test_key_enumerator {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPInsertionOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	NSEnumerator *e = [linkedDictionary keyEnumerator];
+	int i = 0;
+	id key = nil;
+	while ((key = [e nextObject]) != nil) {
+		GHAssertEqualObjects([self key:i], key, @"", nil);
+		// GHTestLog(@"%d:%@", i, key);
+		i++;
+	}
+	GHAssertEquals(testSize, (NSUInteger) i, @"", nil);
+}
+
+-(void)test_value_enumerator {
+	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPInsertionOrder];
+	[self fillDictionary:linkedDictionary size:testSize];
+	NSEnumerator *e = [linkedDictionary valueEnumerator];
+	int i = 0;
+	id val = nil;
+	while ((val = [e nextObject]) != nil) {
+		GHAssertEqualObjects([self val:i], val, @"", nil);
+		// GHTestLog(@"%d:%@", i, val);
+		i++;
+	}
+	GHAssertEquals(testSize, (NSUInteger) i, @"", nil);
+}
+
+
 
 @end
