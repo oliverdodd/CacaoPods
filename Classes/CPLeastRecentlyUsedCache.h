@@ -22,4 +22,7 @@
 
 -(void)setObject:(id)anObject forKey:(id)aKey;
 
+-(void)removeObjectForKey:(id)aKey;
+-(void)removeAllObjects;
+
 @end

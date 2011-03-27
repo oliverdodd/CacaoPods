@@ -61,6 +61,19 @@
 }
 
 /*-----------------------------------------------------------------------------\
+ |	remove
+ \----------------------------------------------------------------------------*/
+#pragma mark remove
+
+-(void)removeObjectForKey:(id)aKey {
+	[linkedDictionary removeObjectForKey:aKey];
+}
+
+-(void)removeAllObjects {
+	[linkedDictionary removeAllObjects];
+}
+
+/*-----------------------------------------------------------------------------\
  |	enumeration
  \----------------------------------------------------------------------------*/
 #pragma mark enumeration

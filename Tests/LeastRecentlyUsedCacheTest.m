@@ -80,6 +80,27 @@
 }
 
 //------------------------------------------------------------------------------
+#pragma mark remove
+
+-(void)test_remove {
+	[self fillCache:cache size:testSize];
+	int i;
+	for (i = testSize - 1; i >= 0; i--) {
+		id key = [self key:i];
+		GHAssertNotNil([cache objectForKey:key], @"", nil);
+		[cache removeObjectForKey:key];
+		GHAssertNil([cache objectForKey:key], @"", nil);
+		[self checkSize:cache size:i];
+	}
+}
+
+-(void)test_removeAllObjects {
+	[self fillCache:cache size:testSize];
+	[cache removeAllObjects];
+	[self checkSize:cache size:0];
+}
+
+//------------------------------------------------------------------------------
 #pragma mark enumeration
 
 -(void)test_countByEnumeratingWithState {
