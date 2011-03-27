@@ -11,5 +11,20 @@
 
 @protocol CPMap <CPCollection>
 
+// NSDictionary
+-(NSUInteger)count;
+-(id)objectForKey:(id)aKey;
+-(NSEnumerator *)keyEnumerator;
+
+// NSMutableDictionary
+-(id)initWithCapacity:(NSUInteger)numItems;
+-(void)setObject:(id)anObject forKey:(id)aKey;
+-(void)removeObjectForKey:(id)aKey;
+-(void)removeAllObjects;
+-(void)removeObjectsForKeys:(NSArray *)keyArray;
+
+-(NSArray *)keys;
+-(NSArray *)values;
+-(NSEnumerator *)valueEnumerator;
 
 @end

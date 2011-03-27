@@ -73,10 +73,30 @@
 	[linkedDictionary removeAllObjects];
 }
 
+-(void)removeObjectsForKeys:(NSArray *)keyArray {
+	[linkedDictionary removeObjectsForKeys:keyArray];
+}
+
 /*-----------------------------------------------------------------------------\
  |	enumeration
  \----------------------------------------------------------------------------*/
 #pragma mark enumeration
+
+-(NSArray *)keys {
+	return [linkedDictionary keys];
+}
+
+-(NSEnumerator *)keyEnumerator {
+	return [linkedDictionary keyEnumerator];
+}
+
+-(NSArray *)values {
+	return [linkedDictionary values];	
+}
+
+-(NSEnumerator *)valueEnumerator {
+	return [linkedDictionary valueEnumerator];
+}
 
 -(NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len {
 	NSEnumerator *enumerator;

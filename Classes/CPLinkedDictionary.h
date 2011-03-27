@@ -7,7 +7,7 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import "CPCollection.h"
+#import "CPMap.h"
 #import "CPLinkedMapNode.h"
 
 enum {	                          
@@ -16,7 +16,7 @@ enum {
 };
 typedef NSUInteger CPKeyOrder;
 
-@interface CPLinkedDictionary : NSMutableDictionary <CPCollection> {
+@interface CPLinkedDictionary : NSMutableDictionary <CPMap> {
 	NSMutableDictionary *dictionary;
 	CPLinkedMapNode *sentinel;
 	CPKeyOrder keyOrder;
@@ -28,12 +28,5 @@ typedef NSUInteger CPKeyOrder;
 
 -(void)removeFirstObject;
 -(void)removeLastObject;
--(void)removeAllObjects;
--(void)removeObjectsForKeys:(NSArray *)keyArray;
-
--(NSArray *)keys;
--(NSEnumerator *)keyEnumerator;
--(NSArray *)values;
--(NSEnumerator *)valueEnumerator;
 
 @end

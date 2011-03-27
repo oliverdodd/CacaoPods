@@ -11,18 +11,9 @@
 #import "CPLinkedDictionary.h"
 
 
-@interface CPLeastRecentlyUsedCache : NSObject<CPCollection> {
+@interface CPLeastRecentlyUsedCache : NSObject<CPMap> {
 	NSUInteger max;
 	CPLinkedDictionary *linkedDictionary;
 }
-
--(id)initWithCapacity:(NSUInteger)capacity;
-
--(id)objectForKey:(id)aKey;
-
--(void)setObject:(id)anObject forKey:(id)aKey;
-
--(void)removeObjectForKey:(id)aKey;
--(void)removeAllObjects;
 
 @end
