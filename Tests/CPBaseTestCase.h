@@ -7,8 +7,15 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import <Cocoa/Cocoa.h>
-#import <GHUnit/GHUnit.h>
+#if TARGET_OS_IPHONE
+	#import <GHUnitIOS/GHUnit.h>
+#elif TARGET_IPHONE_SIMULATOR
+	#import <GHUnitIOS/GHUnit.h>
+#else
+	#import <GHUnit/GHUnit.h>
+	#import <GHUnit/GHTestApp.h>
+#endif
+
 #import "CPCollection.h"
 #import "CPLinkedList.h"
 

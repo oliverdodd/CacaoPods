@@ -3,9 +3,14 @@
 //
 
 #ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-
-	#define RaiseRangeException(idx) \
-		[NSException raise:NSRangeException format:@"index %d out of bounds"];
+	//#ifdef TARGET_OS_IPHONE 
+//		#import <Foundation/Foundation.h>
+//	#elif defined TARGET_IPHONE_SIMULATOR
+//		#import <Foundation/Foundation.h>
+//	#else
+//		
+//	#endif
+	#import <Cocoa/Cocoa.h>
+	#import "CPMacros.h"
 
 #endif
