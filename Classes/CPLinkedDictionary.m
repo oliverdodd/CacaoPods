@@ -192,6 +192,10 @@
 	return [self arrayFromEnumerator:[self keyEnumerator]];
 }
 
+-(NSArray *)keysSortedByValueUsingSelector:(SEL)comparator {
+	return [[self keys] sortedArrayUsingSelector:comparator];
+}
+
 -(NSEnumerator *)valueEnumerator {
 	return [CPLinkedDictionaryValueEnumerator enumeratorWithSentinel:sentinel];
 }

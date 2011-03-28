@@ -27,4 +27,6 @@
 -(NSArray *)values;
 -(NSEnumerator *)valueEnumerator;
 
+-(NSArray *)keysSortedByValueUsingSelector:(SEL)comparator;
+
 @end

@@ -11,9 +11,9 @@
 #import "CPLinkedDictionary.h"
 
 
-@interface CPLeastRecentlyUsedCache : NSObject<CPMap> {
+@interface CPLeastRecentlyUsedCache : CPLinkedDictionary { //NSObject<CPMap> {
 	NSUInteger max;
-	CPLinkedDictionary *linkedDictionary;
+	//CPLinkedDictionary *linkedDictionary;
 }
 
 @end

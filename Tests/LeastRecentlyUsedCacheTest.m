@@ -107,7 +107,7 @@
 	[self fillCache:cache size:testSize];
 	int i = 0;
 	for (id e in cache) {
-		GHAssertEqualObjects([self val:i], e, @"", nil);
+		GHAssertEqualObjects([self key:i], e, @"", nil);
 		// GHTestLog(@"%d:%@", i, e);
 		i++;
 	}
