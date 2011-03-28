@@ -7,7 +7,7 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-@protocol CPCollection <NSFastEnumeration>
+@protocol CPCollection <NSObject, NSFastEnumeration>
 
 -(BOOL)isEmpty;
 -(NSUInteger)count;
