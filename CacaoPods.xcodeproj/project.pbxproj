@@ -43,9 +43,6 @@
 		C407E43B133ECAAC005F9BDD /* LinkedMapNodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DD73132C761800799EE8 /* LinkedMapNodeTest.m */; };
 		C407E43C133ECAAC005F9BDD /* LinkedNodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C451BFEA1313725500955481 /* LinkedNodeTest.m */; };
 		C407E43D133ECAAC005F9BDD /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = C407E389133EC518005F9BDD /* GHUnitIOSTestMain.m */; };
-		C407E4D3133ED3BD005F9BDD /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C407E4D2133ED3BD005F9BDD /* GHUnitIOS.framework */; };
-		C407E4D4133ED3BD005F9BDD /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C407E4D2133ED3BD005F9BDD /* GHUnitIOS.framework */; };
-		C407E4DA133ED3D8005F9BDD /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C407E4D2133ED3BD005F9BDD /* GHUnitIOS.framework */; };
 		C45000141336981A00F999C4 /* CPLinkedDictionaryEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = C45000121336981A00F999C4 /* CPLinkedDictionaryEnumerator.h */; };
 		C45000151336981A00F999C4 /* CPLinkedDictionaryEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C45000131336981A00F999C4 /* CPLinkedDictionaryEnumerator.m */; };
 		C4500018133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = C4500016133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.h */; };
@@ -70,6 +67,11 @@
 		C4D2DD7F132C778F00799EE8 /* LinkedMapNodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DD73132C761800799EE8 /* LinkedMapNodeTest.m */; };
 		C4D2DF9B133424AD00799EE8 /* CPLeastRecentlyUsedCache.h in Headers */ = {isa = PBXBuildFile; fileRef = C4D2DF99133424AD00799EE8 /* CPLeastRecentlyUsedCache.h */; };
 		C4D2DF9C133424AD00799EE8 /* CPLeastRecentlyUsedCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2DF9A133424AD00799EE8 /* CPLeastRecentlyUsedCache.m */; };
+		C4F370D11353DDE300695A24 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F370D01353DDE300695A24 /* GHUnitIOS.framework */; };
+		C4F370D21353DDE300695A24 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F370D01353DDE300695A24 /* GHUnitIOS.framework */; };
+		C4F370D31353DDE800695A24 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F370D01353DDE300695A24 /* GHUnitIOS.framework */; };
+		C4F370D41353DE2900695A24 /* libiCacaoPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C407E0F8133E9F04005F9BDD /* libiCacaoPods.a */; };
+		C4F370D61353DE4900695A24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F370D51353DE4900695A24 /* CoreGraphics.framework */; };
 		C4F38F6F13135136002B13B9 /* CPLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6813135136002B13B9 /* CPLinkedList.h */; };
 		C4F38F7013135136002B13B9 /* CPLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F38F6913135136002B13B9 /* CPLinkedList.m */; };
 		C4F38F7113135136002B13B9 /* CPList.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F38F6A13135136002B13B9 /* CPList.h */; };
@@ -86,7 +88,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C407E0F7133E9F04005F9BDD /* iCacaoPods */;
+			remoteGlobalIDString = C407E0F7133E9F04005F9BDD;
 			remoteInfo = iCacaoPods;
 		};
 		C451C15B1314C02700955481 /* PBXContainerItemProxy */ = {
@@ -108,7 +110,6 @@
 		C407E389133EC518005F9BDD /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
 		C407E3EC133EC989005F9BDD /* iTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C407E3EE133EC989005F9BDD /* iTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iTest-Info.plist"; sourceTree = "<group>"; };
-		C407E4D2133ED3BD005F9BDD /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = System/Library/Frameworks/GHUnitIOS.framework; sourceTree = SDKROOT; };
 		C45000121336981A00F999C4 /* CPLinkedDictionaryEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedDictionaryEnumerator.h; sourceTree = "<group>"; };
 		C45000131336981A00F999C4 /* CPLinkedDictionaryEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLinkedDictionaryEnumerator.m; sourceTree = "<group>"; };
 		C4500016133698F600F999C4 /* CPLinkedDictionaryKeyEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedDictionaryKeyEnumerator.h; sourceTree = "<group>"; };
@@ -133,6 +134,8 @@
 		C4D2DE42132D082C00799EE8 /* CPBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPBaseTestCase.m; sourceTree = "<group>"; };
 		C4D2DF99133424AD00799EE8 /* CPLeastRecentlyUsedCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLeastRecentlyUsedCache.h; sourceTree = "<group>"; };
 		C4D2DF9A133424AD00799EE8 /* CPLeastRecentlyUsedCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLeastRecentlyUsedCache.m; sourceTree = "<group>"; };
+		C4F370D01353DDE300695A24 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/GHUnitIOS.framework; sourceTree = DEVELOPER_DIR; };
+		C4F370D51353DE4900695A24 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		C4F38F6813135136002B13B9 /* CPLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLinkedList.h; sourceTree = "<group>"; };
 		C4F38F6913135136002B13B9 /* CPLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLinkedList.m; sourceTree = "<group>"; };
 		C4F38F6A13135136002B13B9 /* CPList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPList.h; sourceTree = "<group>"; };
@@ -155,7 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C407E4D4133ED3BD005F9BDD /* GHUnitIOS.framework in Frameworks */,
+				C4F370D21353DDE300695A24 /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,8 +166,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C407E4DA133ED3D8005F9BDD /* GHUnitIOS.framework in Frameworks */,
+				C4F370D61353DE4900695A24 /* CoreGraphics.framework in Frameworks */,
+				C4F370D41353DE2900695A24 /* libiCacaoPods.a in Frameworks */,
 				C407E42B133ECA82005F9BDD /* Foundation.framework in Frameworks */,
+				C4F370D31353DDE800695A24 /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C407E4D3133ED3BD005F9BDD /* GHUnitIOS.framework in Frameworks */,
+				C4F370D11353DDE300695A24 /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +198,6 @@
 			children = (
 				D2AAC07E0554694100DB518D /* libCacaoPods.a */,
 				C451C09C1313E41F00955481 /* Test.app */,
-				C407E0F8133E9F04005F9BDD /* libiCacaoPods.a */,
 				C407E3EC133EC989005F9BDD /* iTest.app */,
 			);
 			name = Products;
@@ -202,6 +206,8 @@
 		0867D691FE84028FC02AAC07 /* CacaoPods */ = {
 			isa = PBXGroup;
 			children = (
+				C4F370D51353DE4900695A24 /* CoreGraphics.framework */,
+				C407E0F8133E9F04005F9BDD /* libiCacaoPods.a */,
 				C4F38F6713135136002B13B9 /* Classes */,
 				C4F38FCF13136C36002B13B9 /* Tests */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -252,8 +258,8 @@
 		C407E466133ECDFF005F9BDD /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				C4F370D01353DDE300695A24 /* GHUnitIOS.framework */,
 				C451C0A61313E43700955481 /* GHUnit.framework */,
-				C407E4D2133ED3BD005F9BDD /* GHUnitIOS.framework */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "CacaoPods" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -618,6 +625,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -641,6 +649,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -693,7 +702,7 @@
 				GCC_PREFIX_HEADER = iCacaoPods_Prefix.pch;
 				PREBINDING = NO;
 				PRODUCT_NAME = iCacaoPods;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -712,7 +721,7 @@
 				GCC_PREFIX_HEADER = iCacaoPods_Prefix.pch;
 				PREBINDING = NO;
 				PRODUCT_NAME = iCacaoPods;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -748,7 +757,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = iTest;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -783,7 +792,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = iTest;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 				ZERO_LINK = NO;
 			};
 			name = Release;
