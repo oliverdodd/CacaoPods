@@ -1,16 +1,4 @@
-//
-// Prefix header for all source files of the 'CacaoPods' target in the 'CacaoPods' project.
-//
-
 #ifdef __OBJC__
-	//#ifdef TARGET_OS_IPHONE 
-//		#import <Foundation/Foundation.h>
-//	#elif defined TARGET_IPHONE_SIMULATOR
-//		#import <Foundation/Foundation.h>
-//	#else
-//		
-//	#endif
 	#import <Cocoa/Cocoa.h>
 	#import "CPMacros.h"
-
 #endif
