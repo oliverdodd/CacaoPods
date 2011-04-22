@@ -26,7 +26,7 @@
 #pragma mark init
 
 -(id)init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		size = 0;
 		sentinel = [CPLinkedNode sentinel];
 	}
@@ -71,7 +71,7 @@
 }
 
 -(id)last {
-	return [self entry:(size - 1)].element;
+	return [self entry:((int)size - 1)].element;
 }
 
 -(CPLinkedNode *)entry:(int)index {
@@ -82,7 +82,7 @@
 		for (i = 0; i <= index; i++)
 			n = n.next;
 	} else {
-		for (i = size; i > index; i--)
+		for (i = (int)size; i > index; i--)
 			n = n.previous;
 	}
 	return n;
@@ -214,7 +214,7 @@
 }
 
 -(id)pop {
-	return [self remove:(size - 1)];
+	return [self remove:((int)size - 1)];
 }
 
 /*-----------------------------------------------------------------------------\

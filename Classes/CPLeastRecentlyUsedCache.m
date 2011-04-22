@@ -18,7 +18,7 @@
 #pragma mark init
 
 -(id)initWithCapacity:(NSUInteger)capacity {
-	if (self = [super initWithCapacity:capacity keyOrder:CPAccessOrder]) {
+	if ((self = [super initWithCapacity:capacity keyOrder:CPAccessOrder])) {
 		max = capacity;
 	}
 	return self;

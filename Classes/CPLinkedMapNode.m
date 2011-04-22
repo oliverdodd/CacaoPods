@@ -21,7 +21,7 @@
 }
 
 -(id)init:(id)aKey value:(id)aValue next:(id)n previous:(id)p {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		self.key = aKey;
 		self.value = aValue;
 		self.next = n;

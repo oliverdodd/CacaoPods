@@ -30,7 +30,7 @@
 #pragma mark init
 
 -(id)initWithCapacity:(NSUInteger)numItems keyOrder:(CPKeyOrder)order {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		dictionary = [[NSMutableDictionary alloc] initWithCapacity:numItems];
 		sentinel = [CPLinkedMapNode sentinel];
 		keyOrder = order;

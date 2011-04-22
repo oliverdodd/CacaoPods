@@ -17,7 +17,7 @@
 }
 
 -(id)initWithSentinel:(CPLinkedNode *)sentinelNode {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		sentinel = sentinelNode;
 		currentNode = sentinelNode;
 	}

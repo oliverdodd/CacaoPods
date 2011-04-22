@@ -20,7 +20,7 @@
 }
 
 -(id)init:(id)e next:(id)n previous:(id)p {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		self.element = e;
 		self.next = n;
 		self.previous = p;
