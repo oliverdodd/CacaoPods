@@ -15,4 +15,6 @@
 	NSUInteger max;
 }
 
+-(id)initWithCapacity:(NSUInteger)capacity;
+
 @end
