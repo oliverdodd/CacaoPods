@@ -18,37 +18,37 @@
 
 -(void)forLinkedList:(CPLinkedList *)l size:(NSUInteger)s func:(void (^)(CPLinkedList*,int))func {
 	int i = 0;
-	for (i; i < s; i++)
+	for (; i < s; i++)
 		func(l,i);
 }
 
 -(void)forLinkedListReverse:(CPLinkedList *)l size:(NSUInteger)s func:(void (^)(CPLinkedList*,int))func {
-	int i = s - 1;
-	for (i; i >= 0; i--)
+	int i = (int)s - 1;
+	for (; i >= 0; i--)
 		func(l,i);
 }
 
 -(void)forArray:(NSArray *)a size:(NSUInteger)s func:(void (^)(NSArray*,int))func {
 	int i = 0;
-	for (i; i < s; i++)
+	for (; i < s; i++)
 		func(a,i);
 }
 
 -(void)forMutableArray:(NSMutableArray *)a size:(NSUInteger)s func:(void (^)(NSMutableArray*,int))func {
 	int i = 0;
-	for (i; i < s; i++)
+	for (; i < s; i++)
 		func(a,i);
 }
 
 -(void)forMutableDictionary:(NSMutableDictionary *)d size:(NSUInteger)s func:(void (^)(NSMutableDictionary*,int))func {
 	int i = 0;
-	for (i; i < s; i++)
+	for (; i < s; i++)
 		func(d,i);
 }
 
 -(void)forMutableDictionaryReverse:(NSMutableDictionary *)d size:(NSUInteger)s func:(void (^)(NSMutableDictionary*,int))func {
-	int i = s - 1;
-	for (i; i >= 0; i--)
+	int i = (int)s - 1;
+	for (; i >= 0; i--)
 		func(d,i);
 }
 

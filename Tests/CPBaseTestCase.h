@@ -7,6 +7,8 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
+#include "TargetConditionals.h"
+
 #if TARGET_OS_IPHONE
 	#import <GHUnitIOS/GHUnit.h>
 #elif TARGET_IPHONE_SIMULATOR

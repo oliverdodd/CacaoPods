@@ -7,7 +7,7 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import "CPBaseTestCase.h";
+#import "CPBaseTestCase.h"
 #import "CPLinkedList.h"
 
 @interface LinkedListTest : CPBaseTestCase {
@@ -81,7 +81,7 @@
 
 -(void)test_add_atIndex_i {
 	int i = 0;
-	for (i; i < testSize; i++)
+	for (; i < testSize; i++)
 		[linkedList add:[self val:i] atIndex:i];
 	[self checkList:linkedList size:testSize];
 }
@@ -89,7 +89,7 @@
 -(void)test_add_add_atIndex_0 {
 	int i = 1;
 	// add
-	for (i; i < testSize; i++)
+	for (; i < testSize; i++)
 		[linkedList add:[self val:i]];
 	// add atIndex 0
 	[linkedList add:[self val:0] atIndex:0];
@@ -125,7 +125,7 @@
 
 -(void)test_last {
 	[self fillList:linkedList size:testSize];
-	GHAssertEqualObjects([self val:(testSize - 1)], [linkedList last], @"", nil);
+	GHAssertEqualObjects([self val:((int)testSize - 1)], [linkedList last], @"", nil);
 }
 
 //------------------------------------------------------------------------------
@@ -216,8 +216,8 @@
 	// add
 	[self fillList:linkedList size:testSize];
 	// remove
-	id valid = [self val:(testSize / 2)];
-	id invalid = [self val:(testSize / 2)];
+	id valid = [self val:((int)testSize / 2)];
+	id invalid = [self val:((int)testSize / 2)];
 	
 	GHAssertTrue([linkedList contains:valid], @"", nil);
 	GHAssertTrue([linkedList removeObject:valid], @"", nil);
@@ -311,7 +311,7 @@
 	NSEnumerator *enumerator = [linkedList objectEnumerator];
 	id e = nil;
 	int i = 0;
-	while (e = [enumerator nextObject]) {
+	while ((e = [enumerator nextObject])) {
 		GHAssertEqualObjects([self val:i], e, @"", nil);
 		// GHTestLog(@"%d:%@", i, e);
 		i++;

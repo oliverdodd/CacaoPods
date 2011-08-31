@@ -7,7 +7,7 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import "CPBaseTestCase.h";
+#import "CPBaseTestCase.h"
 #import "CPLeastRecentlyUsedCache.h"
 
 @interface LeastRecentlyUsedCacheTest : CPBaseTestCase {
@@ -36,7 +36,7 @@
 
 -(void)fillCache:(CPLeastRecentlyUsedCache *)c size:(NSUInteger)s {
 	int i = 0;
-	for (i; i < s; i++) {
+	for (; i < s; i++) {
 		[cache setObject:[self val:i] forKey:[self key:i]];
 	}
 }
@@ -44,7 +44,7 @@
 -(void)checkCache:(CPLeastRecentlyUsedCache *)c size:(NSUInteger)s {
 	[self checkSize:c size:s];
 	int i = 0;
-	for (i; i < s; i++) {
+	for (; i < s; i++) {
 		id key = [self key:i];
 		id expected = [self val:i];
 		id e = [c objectForKey:key];
@@ -72,7 +72,7 @@
 -(void)test_set_get_over {
 	[self fillCache:cache size:testSize];
 	
-	int i = testSize + 1;
+	int i = (int)testSize + 1;
 	
 	[cache setObject:[self val:i] forKey:[self key:i]];
 	GHAssertNotNil([cache objectForKey:[self key:i]], @"");
@@ -85,7 +85,7 @@
 -(void)test_remove {
 	[self fillCache:cache size:testSize];
 	int i;
-	for (i = testSize - 1; i >= 0; i--) {
+	for (i = (int)testSize - 1; i >= 0; i--) {
 		id key = [self key:i];
 		GHAssertNotNil([cache objectForKey:key], @"", nil);
 		[cache removeObjectForKey:key];

@@ -7,7 +7,7 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import "CPBaseTestCase.h";
+#import "CPBaseTestCase.h"
 #import "CPLinkedMapNode.h"
 
 @interface LinkedMapNodeTest : GHTestCase

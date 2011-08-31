@@ -7,7 +7,7 @@
 //  Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 //
 
-#import "CPBaseTestCase.h";
+#import "CPBaseTestCase.h"
 #import "CPLinkedDictionary.h"
 
 @interface LinkedDictionaryTest : CPBaseTestCase {
@@ -65,7 +65,7 @@
 	NSUInteger s = [keys count];
 	int i = 0;
 	for (id key in keys) {
-		int j = s - i - 1;
+		int j = (int)s - i - 1;
 		id expected = [self key:j];
 		GHAssertEqualObjects(expected, key, @"%@ != %@", key, expected);
 		// GHTestLog(@"%d:%@", i, key);
@@ -144,7 +144,7 @@
 	[self checkKeys:keys];
 	// access in reverse
 	e = [keys reverseObjectEnumerator];
-	while (key = [e nextObject]) {
+	while ((key = [e nextObject])) {
 		//GHTestLog(@"getting: %@", key);
 		[linkedDictionary objectForKey:key];
 	}
@@ -152,7 +152,7 @@
 	[self checkKeysReversed:[linkedDictionary keys]];
 	// access in original order
 	e = [keys objectEnumerator];
-	while (key = [e nextObject]) {
+	while ((key = [e nextObject])) {
 		//GHTestLog(@"getting: %@", key);
 		[linkedDictionary objectForKey:key];
 	}
@@ -170,14 +170,14 @@
 	[self checkKeys:keys];
 	// set in reverse
 	e = [keys reverseObjectEnumerator];
-	while (key = [e nextObject]) {
+	while ((key = [e nextObject])) {
 		[linkedDictionary setObject:@"" forKey:key];
 	}
 	// check reversed
 	[self checkKeysReversed:[linkedDictionary keys]];
 	// set in original order
 	e = [keys objectEnumerator];
-	while (key = [e nextObject]) {
+	while ((key = [e nextObject])) {
 		[linkedDictionary setObject:@"" forKey:key];
 	}
 	[self checkKeys:[linkedDictionary keys]];
@@ -187,20 +187,20 @@
 	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPAccessOrder];
 	[self fillDictionary:linkedDictionary size:testSize];
 	
-	int lastIndex = testSize - 1;
+	int lastIndex = (int)testSize - 1;
 	
 	// test last index
 	id key = [self key:lastIndex];
 	GHAssertEqualObjects(key, [[linkedDictionary keys] objectAtIndex:lastIndex], @"", nil);
 	
 	// access and test random index
-	int i = arc4random() % testSize;
+	int i = arc4random() % (int)testSize;
 	key = [self key:i];
 	[linkedDictionary objectForKey:key];
 	GHAssertEqualObjects(key, [[linkedDictionary keys] objectAtIndex:lastIndex], @"", nil);
 	
 	// set and test random index
-	i = arc4random() % testSize;
+	i = arc4random() % (int)testSize;
 	key = [self key:i];
 	[linkedDictionary setObject:@"" forKey:key];
 	GHAssertEqualObjects(key, [[linkedDictionary keys] objectAtIndex:lastIndex], @"", nil);
@@ -265,7 +265,7 @@
 	linkedDictionary = [[CPLinkedDictionary alloc] initWithCapacity:testSize keyOrder:CPInsertionOrder];
 	[self fillDictionary:linkedDictionary size:testSize];
 	
-	id key = [self key:testSize - 1];
+	id key = [self key:(int)testSize - 1];
 	GHAssertNotNil([linkedDictionary objectForKey:key], @"", nil);
 	
 	[linkedDictionary removeLastObject];
